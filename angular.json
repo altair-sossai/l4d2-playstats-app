@@ -29,6 +29,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/web.config",
+              "src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
@@ -106,6 +108,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/web.config",
               "src/manifest.webmanifest"
             ],
             "styles": [
