@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import pt from '@angular/common/locales/pt';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -31,19 +31,14 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
-import { LockedScreenComponent } from './modules/auth/components/locked-screen/locked-screen.component';
-import { UserDetailComponent } from './modules/auth/users/components/user-detail/user-detail.component';
-import { AppHttpInterceptor } from './shared/http-interceptor';
+import { StatisticsComponent } from './modules/statistics/components/statistics/statistics.component';
 
 registerLocaleData(pt);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LockedScreenComponent,
-    AppLayoutComponent,
-    UserDetailComponent
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -79,8 +74,7 @@ registerLocaleData(pt);
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },
-    { provide: NZ_I18N, useValue: pt_BR },
-    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true, },
+    { provide: NZ_I18N, useValue: pt_BR }
   ],
   bootstrap: [AppComponent]
 })
