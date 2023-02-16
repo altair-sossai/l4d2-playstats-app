@@ -1,6 +1,6 @@
 export interface GameRound {
     round: number;
-    when: string;
+    when: Date;
     teamSize: number;
     configurationName: string | null;
     mapName: string | null;

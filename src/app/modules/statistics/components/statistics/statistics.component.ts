@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatchResult } from 'src/app/modules/matches/results/match.result';
-import { MatchesService } from 'src/app/modules/matches/services/matches.service';
+import { StatisticsSimplifiedResult } from '../../results/statistics-simplified.result';
+import { StatisticsService } from '../../services/statistics.service';
 
 @Component({
   selector: 'app-statistics',
@@ -10,15 +10,16 @@ import { MatchesService } from 'src/app/modules/matches/services/matches.service
 })
 export class StatisticsComponent implements OnInit {
 
-  public matches?: MatchResult[];
+  public server?: string | null;
+  public statistics?: StatisticsSimplifiedResult[];
 
-  constructor(private activatedRoute: ActivatedRoute,
-    private matchesService: MatchesService) {
+  constructor(private route: ActivatedRoute,
+    private statisticsService: StatisticsService) {
   }
 
-  ngOnInit(): void {
-    const server = this.activatedRoute.snapshot.paramMap.get('server')!;
-    this.matchesService.get(server).subscribe(matches => this.matches = matches);
-  }
+  ngOnInit() {
+    this.server = this.route.snapshot.paramMap.get('server');
 
+    this.statisticsService.get(this.server!).subscribe(statistics => this.statistics = statistics);
+  }
 }

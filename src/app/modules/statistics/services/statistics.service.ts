@@ -16,7 +16,11 @@ export class StatisticsService {
     return this.http.get<StatisticsSimplifiedResult[]>(`${environment.apiUrl}/api/statistics/${server}`);
   }
 
-  find(server: string, fileName: string): Observable<StatisticsResult> {
-    return this.http.get<StatisticsResult>(`${environment.apiUrl}/api/statistics/${server}/${fileName}`);
+  find(server: string, statisticId: string): Observable<StatisticsResult> {
+    return this.http.get<StatisticsResult>(`${environment.apiUrl}/api/statistics/${server}/${statisticId}`);
+  }
+
+  between(server: string, start: string, end: string): Observable<StatisticsResult[]> {
+    return this.http.get<StatisticsResult[]>(`${environment.apiUrl}/api/statistics/${server}/between/${start}/and/${end}`);
   }
 }

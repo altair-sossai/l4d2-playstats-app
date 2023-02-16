@@ -1,0 +1,44 @@
+<nz-skeleton [nzActive]="true" *ngIf="!matches"></nz-skeleton>
+<ng-container *ngIf="matches">
+
+    <nz-table #matchesTable [nzData]="matches">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Campaign</th>
+                <th>Team A</th>
+                <th>Score</th>
+                <th>Team B</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let match of matchesTable.data">
+                <td>{{match.matchDate | date:'medium'}}</td>
+                <td>{{match.campaign}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let player of match.teams[0].players">
+                            {{player.name}}
+                        </li>
+                    </ul>
+                </td>
+                <td>{{match.teams[0].score}} x {{match.teams[1].score}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let player of match.teams[1].players">
+                            {{player.name}}
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <a
+                        [routerLink]="['/server', server, 'matches', match.statistics[0], match.statistics[match.statistics.length - 1], 'statistics']">
+                        Details
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+
+</ng-container>

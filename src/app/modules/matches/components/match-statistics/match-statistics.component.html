@@ -11,10 +11,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let statistic of statisticsTable.data">
-                <td>{{statistic?.gameRound?.when | date:'medium'}}</td>
-                <td>{{statistic?.gameRound?.mapName}}</td>
+                <td>{{statistic?.statistic?.gameRound?.when | date:'medium'}}</td>
+                <td>{{statistic?.statistic?.gameRound?.mapName}}</td>
                 <td>
-                    <a [routerLink]="['/server', server, 'statistics', statistic.statisticId]">
+                    <a [routerLink]="['/server', server, 'matches', start, end, 'statistics', statistic.statisticId]">
                         Details
                     </a>
                 </td>

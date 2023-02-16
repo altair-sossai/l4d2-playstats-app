@@ -14,4 +14,8 @@ export class MatchesService {
   get(server: string): Observable<MatchResult[]> {
     return this.http.get<MatchResult[]>(`${environment.apiUrl}/api/matches/${server}`);
   }
+
+  between(server: string, start: string, end: string): Observable<MatchResult[]> {
+    return this.http.get<MatchResult[]>(`${environment.apiUrl}/api/matches/${server}/between/${start}/and/${end}`);
+  }
 }

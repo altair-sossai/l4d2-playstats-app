@@ -31,6 +31,11 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatchStatisticComponent } from './modules/matches/components/match-statistic/match-statistic.component';
+import { MatchStatisticsComponent } from './modules/matches/components/match-statistics/match-statistics.component';
+import { MatchesComponent } from './modules/matches/components/matches/matches.component';
+import { ServerComponent } from './modules/server/components/server/server.component';
+import { StatisticComponent } from './modules/statistics/components/statistic/statistic.component';
 import { StatisticsComponent } from './modules/statistics/components/statistics/statistics.component';
 
 registerLocaleData(pt);
@@ -38,7 +43,12 @@ registerLocaleData(pt);
 @NgModule({
   declarations: [
     AppComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    ServerComponent,
+    MatchesComponent,
+    MatchStatisticsComponent,
+    MatchStatisticComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserModule,
