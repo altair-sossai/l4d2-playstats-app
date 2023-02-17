@@ -5,6 +5,39 @@
         <thead>
             <tr>
                 <th>Date</th>
+                <th>Campaign</th>
+                <th>Team A</th>
+                <th>Score</th>
+                <th>Team B</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{match?.matchDate | date:'medium'}}</td>
+                <td>{{match?.campaign}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let player of match?.teams?.[0]?.players">
+                            <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
+                        </li>
+                    </ul>
+                </td>
+                <td>{{match?.teams?.[0]?.score}} x {{match?.teams?.[1]?.score}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let player of match?.teams?.[1]?.players">
+                            <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
                 <th>Map</th>
                 <th></th>
             </tr>
