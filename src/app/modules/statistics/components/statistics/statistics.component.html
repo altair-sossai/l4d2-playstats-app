@@ -1,7 +1,7 @@
-<nz-skeleton [nzActive]="true" *ngIf="!statistics"></nz-skeleton>
+<div *ngIf="!statistics">loading...</div>
 <ng-container *ngIf="statistics">
 
-    <nz-table #statisticsTable [nzData]="statistics">
+    <table>
         <thead>
             <tr>
                 <th>Date</th>
@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let statistic of statisticsTable.data">
+            <tr *ngFor="let statistic of statistics">
                 <td>{{statistic?.gameRound?.when | date:'medium'}}</td>
                 <td>{{statistic?.gameRound?.mapName}}</td>
                 <td>
@@ -20,6 +20,6 @@
                 </td>
             </tr>
         </tbody>
-    </nz-table>
+    </table>
 
 </ng-container>

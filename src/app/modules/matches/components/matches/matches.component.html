@@ -1,7 +1,7 @@
-<nz-skeleton [nzActive]="true" *ngIf="!matches"></nz-skeleton>
+<div *ngIf="!matches">loading...</div>
 <ng-container *ngIf="matches">
 
-    <nz-table #matchesTable [nzData]="matches">
+    <table>
         <thead>
             <tr>
                 <th>Date</th>
@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let match of matchesTable.data">
+            <tr *ngFor="let match of matches">
                 <td>{{match.matchDate | date:'medium'}}</td>
                 <td>{{match.campaign}}</td>
                 <td>
@@ -39,6 +39,6 @@
                 </td>
             </tr>
         </tbody>
-    </nz-table>
+    </table>
 
 </ng-container>

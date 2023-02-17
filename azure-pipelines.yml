@@ -12,7 +12,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '16.x'
+    versionSpec: '18.x'
   displayName: 'Install Node.js'
 
 - script: |
@@ -20,7 +20,7 @@ steps:
     npm install
     npm run update-version
     ng lint
-    ng build --prod
+    ng build --configuration production
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
