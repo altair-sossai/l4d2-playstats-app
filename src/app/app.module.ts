@@ -4,6 +4,7 @@ import pt from '@angular/common/locales/pt';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { IconModule, SkeletonModule, TableModule, TilesModule, UIShellModule } from 'carbon-components-angular';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,11 @@ registerLocaleData(pt);
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    UIShellModule,
+    IconModule,
+    TilesModule,
+    SkeletonModule,
+    TableModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000'

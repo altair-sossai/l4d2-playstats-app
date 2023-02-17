@@ -1,4 +1,10 @@
 <h2>{{server}}</h2>
-<a [routerLink]="['/server', server, 'matches']">matches</a>
-<br />
-<a [routerLink]="['/server', server, 'statistics']">statistics</a>
+
+<div class="tiles">
+    <ibm-clickable-tile [route]="['/server', server, 'matches']">
+        Resultados por campanha
+    </ibm-clickable-tile>
+    <ibm-clickable-tile [route]="['/server', server, 'statistics']">
+        Resultados por mapa
+    </ibm-clickable-tile>
+</div>
