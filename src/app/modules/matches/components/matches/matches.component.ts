@@ -48,9 +48,9 @@ export class MatchesComponent implements OnInit {
       tableModel.addRow(new TableRow(
         new TableItem({ data: match.matchDate, template: this.matchDateTemplate }),
         new TableItem({ data: match.campaign }),
-        new TableItem({ data: match.teams[0], template: this.teamTemplate }),
+        new TableItem({ data: match.teams[0]?.players, template: this.teamTemplate }),
         new TableItem({ data: match.teams, template: this.scoreTemplate }),
-        new TableItem({ data: match.teams[1], template: this.teamTemplate }),
+        new TableItem({ data: match.teams[1]?.players, template: this.teamTemplate }),
         new TableItem({ data: match, template: this.actionsTemplate }),
       ));
     }

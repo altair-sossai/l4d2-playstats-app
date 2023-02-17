@@ -13,15 +13,15 @@
 <ng-template #matchDateTemplate let-matchDate="data">
     {{matchDate | date:'dd/MM/YYYY HH:mm'}}
 </ng-template>
-<ng-template #teamTemplate let-team="data">
-    <ul>
-        <li *ngFor="let player of team.players">
+<ng-template #teamTemplate let-players="data">
+    <ul ibmList>
+        <li *ngFor="let player of players" ibmListItem>
             <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
         </li>
     </ul>
 </ng-template>
 <ng-template #scoreTemplate let-teams="data">
-    {{teams[0].score}} x {{teams[1].score}}
+    {{teams[0].score|number}} x {{teams[1].score|number}}
 </ng-template>
 <ng-template #actionsTemplate let-match="data">
     <a
