@@ -19,7 +19,7 @@
                 <td>
                     <ul>
                         <li *ngFor="let player of match.teams[0].players">
-                            {{player.name}}
+                            <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
                         </li>
                     </ul>
                 </td>
@@ -27,7 +27,7 @@
                 <td>
                     <ul>
                         <li *ngFor="let player of match.teams[1].players">
-                            {{player.name}}
+                            <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
                         </li>
                     </ul>
                 </td>

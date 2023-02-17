@@ -1,7 +1,9 @@
-export interface InfectedPlayer {
+import { SteamUser } from "./steam/steam-user";
+
+export interface InfectedPlayer extends SteamUser {
     index: number;
     client: number;
-    steamId: string | null;
+    playerName: string | null;
     dmgTotal: number;
     dmgUpright: number;
     dmgTank: number;
@@ -25,6 +27,6 @@ export interface InfectedPlayer {
     spawnSpitter: number;
     spawnJockey: number;
     tankPasses: number;
-    timeStartPresent: string;
-    timeStopPresent: string;
+    timeStartPresent: Date;
+    timeStopPresent: Date;
 }

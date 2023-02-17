@@ -1,6 +1,6 @@
 export interface RoundHalf {
     round: number;
-    team: string;
+    team: string | null;
     restarts: number;
     pillsUsed: number;
     kitsUsed: number;
@@ -14,10 +14,10 @@ export interface RoundHalf {
     incaps: number;
     deaths: number;
     ffDamageTotal: number;
-    startTime: string;
-    endTime: string;
-    startTimePause: string;
-    stopTimePause: string;
-    startTimeTank: string;
-    stopTimeTank: string;
+    startTime: Date;
+    endTime: Date;
+    startTimePause: Date;
+    stopTimePause: Date;
+    startTimeTank: Date;
+    stopTimeTank: Date;
 }

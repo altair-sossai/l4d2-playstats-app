@@ -1,6 +1,6 @@
 export interface Progress {
     round: number;
-    team: string;
+    team: string | null;
     survived: number;
     maxCompletionScore: number;
     maxFlowDist: number;

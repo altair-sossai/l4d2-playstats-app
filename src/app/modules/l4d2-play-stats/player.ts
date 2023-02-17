@@ -1,7 +1,9 @@
-export interface Player {
+import { SteamUser } from "./steam/steam-user";
+
+export interface Player extends SteamUser {
     index: number;
     client: number;
-    steamId: string | null;
+    playerName: string | null;
     shotsShotgun: number;
     shotsSmg: number;
     shotsSniper: number;
@@ -73,10 +75,10 @@ export interface Player {
     ffTakenTotal: number;
     clears: number;
     avgClearTime: number;
-    timeStartPresent: string;
-    timeStopPresent: string;
-    timeStartAlive: string;
-    timeStopAlive: string;
-    timeStartUpright: string;
-    timeStopUpright: string;
+    timeStartPresent: Date;
+    timeStopPresent: Date;
+    timeStartAlive: Date;
+    timeStopAlive: Date;
+    timeStartUpright: Date;
+    timeStopUpright: Date;
 }

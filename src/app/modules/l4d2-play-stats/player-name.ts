@@ -1,5 +1,6 @@
-export interface PlayerName {
+import { SteamUser } from "./steam/steam-user";
+
+export interface PlayerName extends SteamUser {
     index: number;
-    steamId: string | null;
     name: string | null;
 }

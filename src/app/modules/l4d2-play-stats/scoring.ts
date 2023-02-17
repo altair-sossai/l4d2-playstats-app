@@ -4,7 +4,7 @@ export interface Scoring {
 }
 
 export interface Team {
-    letter: string;
+    letter: string | null;
     firstScoresSet: number;
     score: number;
 }
