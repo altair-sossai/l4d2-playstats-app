@@ -14,8 +14,8 @@
                 <td>{{statistic?.gameRound?.when | date:'medium'}}</td>
                 <td>{{statistic?.gameRound?.mapName}}</td>
                 <td>
-                    <a [routerLink]="['/server', server, 'statistics', statistic.statisticId]">
-                        Details
+                    <a ibmLink [routerLink]="['/server', server, 'statistics', statistic.statisticId]">
+                        Detalhes
                     </a>
                 </td>
             </tr>

@@ -1,58 +1,58 @@
-<div *ngIf="!statistics">loading...</div>
-<ng-container *ngIf="statistics">
+<ibm-skeleton-text [lines]="5" *ngIf="!match || !statistics">
+</ibm-skeleton-text>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Campaign</th>
-                <th>Team A</th>
-                <th>Score</th>
-                <th>Team B</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{match?.matchDate | date:'medium'}}</td>
-                <td>{{match?.campaign}}</td>
-                <td>
-                    <ul>
-                        <li *ngFor="let player of match?.teams?.[0]?.players">
-                            <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
-                        </li>
-                    </ul>
-                </td>
-                <td>{{match?.teams?.[0]?.score}} x {{match?.teams?.[1]?.score}}</td>
-                <td>
-                    <ul>
-                        <li *ngFor="let player of match?.teams?.[1]?.players">
-                            <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<ng-container *ngIf="match && statistics">
+    <ibm-structured-list>
+        <ibm-list-header>
+            <ibm-list-column>Date</ibm-list-column>
+            <ibm-list-column>Campaign</ibm-list-column>
+            <ibm-list-column>Team A</ibm-list-column>
+            <ibm-list-column>Placar</ibm-list-column>
+            <ibm-list-column>Team B</ibm-list-column>
+        </ibm-list-header>
+        <ibm-list-row>
+            <ibm-list-column>{{match?.matchDate | date:'medium'}}</ibm-list-column>
+            <ibm-list-column>{{match?.campaign}}</ibm-list-column>
+            <ibm-list-column>
+                <ul>
+                    <li *ngFor="let player of match?.teams?.[0]?.players">
+                        <a ibmLink [href]="player.profileUrl" target="_blank">{{player.name}}</a>
+                    </li>
+                </ul>
+            </ibm-list-column>
+            <ibm-list-column>{{match?.teams?.[0]?.score}} x {{match?.teams?.[1]?.score}}</ibm-list-column>
+            <ibm-list-column>
+                <ul>
+                    <li *ngFor="let player of match?.teams?.[1]?.players">
+                        <a ibmLink [href]="player.profileUrl" target="_blank">{{player.name}}</a>
+                    </li>
+                </ul>
+            </ibm-list-column>
+        </ibm-list-row>
+    </ibm-structured-list>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Map</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let statistic of statistics">
-                <td>{{statistic?.statistic?.gameRound?.when | date:'medium'}}</td>
-                <td>{{statistic?.statistic?.gameRound?.mapName}}</td>
-                <td>
-                    <a [routerLink]="['/server', server, 'matches', start, end, 'statistics', statistic.statisticId]">
-                        Details
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <ibm-table-container>
+        <ibm-table-header>
+            <h4 ibmTableHeaderTitle>Mapas</h4>
+            <p ibmTableHeaderDescription>Resultado dos mapas da campanha atual</p>
+        </ibm-table-header>
+        <ibm-table [showSelectionColumn]="false" [sortable]="false" [model]="statisticsTableModel!">
+        </ibm-table>
+    </ibm-table-container>
 
 </ng-container>
+
+<ng-template #dateTimeTemplate let-date="data">
+    {{date | date:'dd/MM/YYYY HH:mm'}}
+</ng-template>
+
+<ng-template #scoreTemplate let-scoring="data">
+    {{scoring.teamA.score|number}} x {{scoring.teamB.score|number}}
+</ng-template>
+
+<ng-template #actionsTemplate let-route="data">
+    <a ibmLink
+        [routerLink]="['/server', route.server, 'matches',  route.start,  route.end, 'statistics',  route.statisticId]">
+        Detalhes
+    </a>
+</ng-template>

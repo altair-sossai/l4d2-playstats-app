@@ -10,22 +10,25 @@
     </ibm-table>
 </ibm-table-container>
 
-<ng-template #matchDateTemplate let-matchDate="data">
-    {{matchDate | date:'dd/MM/YYYY HH:mm'}}
+<ng-template #dateTimeTemplate let-date="data">
+    {{date | date:'dd/MM/YYYY HH:mm'}}
 </ng-template>
+
 <ng-template #teamTemplate let-players="data">
     <ul ibmList>
         <li *ngFor="let player of players" ibmListItem>
-            <a [href]="player.profileUrl" target="_blank">{{player.name}}</a>
+            <a ibmLink [href]="player.profileUrl" target="_blank">{{player.name}}</a>
         </li>
     </ul>
 </ng-template>
+
 <ng-template #scoreTemplate let-teams="data">
     {{teams[0].score|number}} x {{teams[1].score|number}}
 </ng-template>
+
 <ng-template #actionsTemplate let-match="data">
     <a
         [routerLink]="['/server', server, 'matches', match.statistics[0], match.statistics[match.statistics.length - 1], 'statistics']">
-        Details
+        Detalhes
     </a>
 </ng-template>

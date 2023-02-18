@@ -6,4 +6,12 @@ h2 {
 .tiles {
     display: grid;
     gap: 10px;
+
+    a:hover,
+    a:visited,
+    a:link,
+    a:active {
+        color: inherit;
+        text-decoration: none;
+    }
 }
