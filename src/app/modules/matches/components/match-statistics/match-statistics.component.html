@@ -20,7 +20,7 @@
                     </li>
                 </ul>
             </ibm-list-column>
-            <ibm-list-column>{{match?.teams?.[0]?.score}} x {{match?.teams?.[1]?.score}}</ibm-list-column>
+            <ibm-list-column>{{match?.teams?.[0]?.score|number}} x {{match?.teams?.[1]?.score|number}}</ibm-list-column>
             <ibm-list-column>
                 <ul>
                     <li *ngFor="let player of match?.teams?.[1]?.players">
