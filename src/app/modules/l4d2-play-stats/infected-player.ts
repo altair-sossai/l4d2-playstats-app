@@ -29,4 +29,5 @@ export interface InfectedPlayer extends SteamUser {
     tankPasses: number;
     timeStartPresent: Date;
     timeStopPresent: Date;
+    timePresentElapsed: string | null;
 }

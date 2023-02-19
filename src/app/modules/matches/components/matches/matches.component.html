@@ -24,8 +24,14 @@
     </ibm-table-container>
 </ng-container>
 
-<ng-template #dateTimeTemplate let-date="data">
-    {{date | date:'dd/MM/YYYY HH:mm'}}
+<ng-template #matchDateTemplate let-match="data">
+    <div class="match-date">
+        {{match.matchStart | date:'dd/MM/YYYY HH:mm'}}
+        <ng-container *ngIf="match.matchEnd">
+            <span> até </span>
+            {{match.matchEnd | date:'dd/MM/YYYY HH:mm'}}
+        </ng-container>
+    </div>
 </ng-template>
 
 <ng-template #teamTemplate let-players="data">

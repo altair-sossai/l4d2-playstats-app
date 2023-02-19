@@ -19,14 +19,24 @@
 
     <ibm-structured-list>
         <ibm-list-header>
-            <ibm-list-column>Data</ibm-list-column>
+            <ibm-list-column class="text-center">Data</ibm-list-column>
+            <ibm-list-column>Duração</ibm-list-column>
             <ibm-list-column>Campanha</ibm-list-column>
             <ibm-list-column>Equipe A</ibm-list-column>
             <ibm-list-column>Placar</ibm-list-column>
             <ibm-list-column>Equipe B</ibm-list-column>
         </ibm-list-header>
         <ibm-list-row>
-            <ibm-list-column>{{match!.matchStart | date:'dd/MM/YYYY HH:mm'}}</ibm-list-column>
+            <ibm-list-column>
+                <div class="match-date">
+                    {{match.matchStart | date:'dd/MM/YYYY HH:mm'}}
+                    <ng-container *ngIf="match.matchEnd">
+                        <span> até </span>
+                        {{match.matchEnd | date:'dd/MM/YYYY HH:mm'}}
+                    </ng-container>
+                </div>
+            </ibm-list-column>
+            <ibm-list-column>{{match!.matchElapsed}}</ibm-list-column>
             <ibm-list-column>{{match!.campaign}}</ibm-list-column>
             <ibm-list-column>
                 <ul ibmList>

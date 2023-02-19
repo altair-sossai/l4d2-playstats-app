@@ -77,8 +77,11 @@ export interface Player extends SteamUser {
     avgClearTime: number;
     timeStartPresent: Date;
     timeStopPresent: Date;
+    timePresentElapsed: string | null;
     timeStartAlive: Date;
     timeStopAlive: Date;
+    timeAliveElapsed: string | null;
     timeStartUpright: Date;
     timeStopUpright: Date;
+    timeUprightElapsed: string | null;
 }

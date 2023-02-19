@@ -18,7 +18,7 @@ export class MatchesComponent implements OnInit {
   public matches?: MatchResult[];
   public matchesTableModel?: TableModel;
 
-  @ViewChild('dateTimeTemplate') public dateTimeTemplate?: TemplateRef<any>;
+  @ViewChild('matchDateTemplate') public matchDateTemplate?: TemplateRef<any>;
   @ViewChild('teamTemplate') public teamTemplate?: TemplateRef<any>;
   @ViewChild('scoreTemplate') public scoreTemplate?: TemplateRef<any>;
   @ViewChild('actionsTemplate') public actionsTemplate?: TemplateRef<any>;
@@ -41,7 +41,8 @@ export class MatchesComponent implements OnInit {
     const tableModel = new TableModel();
 
     tableModel.header = [
-      new TableHeaderItem({ data: "Data" }),
+      new TableHeaderItem({ data: "Data", className: 'text-center' }),
+      new TableHeaderItem({ data: "Duração" }),
       new TableHeaderItem({ data: "Campanha" }),
       new TableHeaderItem({ data: "Equipe A" }),
       new TableHeaderItem({ data: "Placar" }),
@@ -51,7 +52,8 @@ export class MatchesComponent implements OnInit {
 
     for (const match of matches) {
       tableModel.addRow(new TableRow(
-        new TableItem({ data: match.matchStart, template: this.dateTimeTemplate, title: '' }),
+        new TableItem({ data: match, template: this.matchDateTemplate, title: '' }),
+        new TableItem({ data: match.matchElapsed }),
         new TableItem({ data: match.campaign, title: '' }),
         new TableItem({ data: match.teams[0]?.players, template: this.teamTemplate, title: '' }),
         new TableItem({ data: match.teams, template: this.scoreTemplate, title: '' }),

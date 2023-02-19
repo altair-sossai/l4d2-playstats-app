@@ -13,6 +13,9 @@ export interface Statistics {
     playerNames: PlayerName[];
     teamA: PlayerName[];
     teamB: PlayerName[];
+    mapStart: Date;
+    mapEnd: Date;
+    mapElapsed: string | null;
 }
 
 export interface Half {
