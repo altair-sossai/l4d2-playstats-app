@@ -23,7 +23,7 @@ export class MatchStatisticsComponent implements OnInit {
   public statistics?: StatisticsResult[];
   public statisticsTableModel?: TableModel;
 
-  @ViewChild('dateTimeTemplate') public dateTimeTemplate?: TemplateRef<any>;
+  @ViewChild('mapDateTemplate') public mapDateTemplate?: TemplateRef<any>;
   @ViewChild('scoreTemplate') public scoreTemplate?: TemplateRef<any>;
   @ViewChild('actionsTemplate') public actionsTemplate?: TemplateRef<any>;
 
@@ -50,7 +50,8 @@ export class MatchStatisticsComponent implements OnInit {
     const tableModel = new TableModel();
 
     tableModel.header = [
-      new TableHeaderItem({ data: "Data" }),
+      new TableHeaderItem({ data: "Data", className: 'text-center' }),
+      new TableHeaderItem({ data: "Duração" }),
       new TableHeaderItem({ data: "Mapa" }),
       new TableHeaderItem({ data: "Placar" }),
       new TableHeaderItem({ data: "Ações" })
@@ -68,7 +69,8 @@ export class MatchStatisticsComponent implements OnInit {
       }
 
       tableModel.addRow(new TableRow(
-        new TableItem({ data: gameRound?.when, template: this.dateTimeTemplate, title: '' }),
+        new TableItem({ data: result.statistic, template: this.mapDateTemplate, title: '' }),
+        new TableItem({ data: result.statistic?.mapElapsed }),
         new TableItem({ data: gameRound?.mapName, title: '' }),
         new TableItem({ data: scoring, template: this.scoreTemplate, title: '' }),
         new TableItem({ data: route, template: this.actionsTemplate, title: '' }),

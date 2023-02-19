@@ -67,8 +67,14 @@
 
 </ng-container>
 
-<ng-template #dateTimeTemplate let-date="data">
-    {{date | date:'dd/MM/YYYY HH:mm'}}
+<ng-template #mapDateTemplate let-map="data">
+    <div class="map-date">
+        {{map.mapStart | date:'dd/MM/YYYY HH:mm'}}
+        <ng-container *ngIf="map.mapEnd">
+            <span> até </span>
+            {{map.mapEnd | date:'dd/MM/YYYY HH:mm'}}
+        </ng-container>
+    </div>
 </ng-template>
 
 <ng-template #scoreTemplate let-scoring="data">
