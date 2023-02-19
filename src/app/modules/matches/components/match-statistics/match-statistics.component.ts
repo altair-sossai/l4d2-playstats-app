@@ -1,6 +1,8 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TableHeaderItem, TableItem, TableModel, TableRow } from 'carbon-components-angular';
+import { ServerResult } from 'src/app/modules/server/results/server.result';
+import { ServerService } from 'src/app/modules/server/services/server.service';
 import { StatisticsResult } from 'src/app/modules/statistics/results/statistics.result';
 import { StatisticsService } from 'src/app/modules/statistics/services/statistics.service';
 import { MatchResult } from '../../results/match.result';
@@ -13,7 +15,8 @@ import { MatchesService } from '../../services/matches.service';
 })
 export class MatchStatisticsComponent implements OnInit {
 
-  public server?: string | null;
+  public serverId?: string | null;
+  public server?: ServerResult;
   public start?: string | null;
   public end?: string | null;
   public match?: MatchResult;
@@ -25,17 +28,19 @@ export class MatchStatisticsComponent implements OnInit {
   @ViewChild('actionsTemplate') public actionsTemplate?: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute,
+    private serverService: ServerService,
     private matchesService: MatchesService,
     private statisticsService: StatisticsService) {
   }
 
   ngOnInit() {
-    this.server = this.route.snapshot.paramMap.get('server');
+    this.serverId = this.route.snapshot.paramMap.get('server');
     this.start = this.route.snapshot.paramMap.get('start');
     this.end = this.route.snapshot.paramMap.get('end');
 
-    this.matchesService.between(this.server!, this.start!, this.end!).subscribe(matches => this.match = matches[0]);
-    this.statisticsService.between(this.server!, this.start!, this.end!).subscribe(statistics => {
+    this.serverService.find(this.serverId!).subscribe(server => this.server = server);
+    this.matchesService.between(this.serverId!, this.start!, this.end!).subscribe(matches => this.match = matches[0]);
+    this.statisticsService.between(this.serverId!, this.start!, this.end!).subscribe(statistics => {
       this.statistics = statistics;
       this.statisticsTableModel = this.buildTableModel(statistics);
     });
@@ -56,7 +61,7 @@ export class MatchStatisticsComponent implements OnInit {
       const gameRound = statistic?.gameRound;
       const scoring = statistic?.scoring;
       const route = {
-        server: this.server,
+        serverId: this.serverId,
         start: this.start,
         end: this.end,
         statisticId: result.statisticId

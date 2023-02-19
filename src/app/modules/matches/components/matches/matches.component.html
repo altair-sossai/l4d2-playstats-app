@@ -1,14 +1,28 @@
-<ibm-skeleton-text [lines]="5" *ngIf="!matches">
+<ibm-skeleton-text [lines]="5" *ngIf="!server || !matches">
 </ibm-skeleton-text>
 
-<ibm-table-container *ngIf="matches">
-    <ibm-table-header>
-        <h4 ibmTableHeaderTitle>Campanhas</h4>
-        <p ibmTableHeaderDescription>Resultado dos jogos agrupados por campanha</p>
-    </ibm-table-header>
-    <ibm-table [showSelectionColumn]="false" [sortable]="false" [model]="matchesTableModel!">
-    </ibm-table>
-</ibm-table-container>
+<ng-container *ngIf="server && matches">
+    <ibm-breadcrumb>
+        <ibm-breadcrumb-item href="/servers">
+            Servidores
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item href="/server/{{serverId}}">
+            {{server.displayName}}
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item [current]="true">
+            Resultados por campanha
+        </ibm-breadcrumb-item>
+    </ibm-breadcrumb>
+
+    <ibm-table-container>
+        <ibm-table-header>
+            <h4 ibmTableHeaderTitle>Campanhas</h4>
+            <p ibmTableHeaderDescription>Resultado dos jogos agrupados por campanha</p>
+        </ibm-table-header>
+        <ibm-table [showSelectionColumn]="false" [sortable]="false" [model]="matchesTableModel!">
+        </ibm-table>
+    </ibm-table-container>
+</ng-container>
 
 <ng-template #dateTimeTemplate let-date="data">
     {{date | date:'dd/MM/YYYY HH:mm'}}
@@ -28,7 +42,7 @@
 
 <ng-template #actionsTemplate let-match="data">
     <a
-        [routerLink]="['/server', server, 'matches', match.statistics[0], match.statistics[match.statistics.length - 1], 'statistics']">
+        [routerLink]="['/server', serverId, 'matches', match.statistics[0], match.statistics[match.statistics.length - 1], 'statistics']">
         Detalhes
     </a>
 </ng-template>

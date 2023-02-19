@@ -1,0 +1,15 @@
+<ibm-skeleton-text [lines]="5" *ngIf="!servers">
+</ibm-skeleton-text>
+
+<div *ngIf="servers" class="container">
+
+    <h3>Escolha o servidor</h3>
+
+    <div class="servers">
+        <a [routerLink]="['/server', server.id]" *ngFor="let server of servers">
+            <ibm-tile>
+                {{server.displayName}}
+            </ibm-tile>
+        </a>
+    </div>
+</div>

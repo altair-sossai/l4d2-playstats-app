@@ -11,6 +11,8 @@ export interface Statistics {
     halves: Half[];
     scoring: Scoring | null;
     playerNames: PlayerName[];
+    teamA: PlayerName[];
+    teamB: PlayerName[];
 }
 
 export interface Half {

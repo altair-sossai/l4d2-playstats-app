@@ -1,0 +1,30 @@
+.container {
+    margin-top: 4em;
+}
+
+h3 {
+    text-align: center;
+    margin: 25px;
+}
+
+.servers {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    a {
+        width: 200px;
+        text-align: center;
+    }
+
+    a:hover,
+    a:visited,
+    a:link,
+    a:active {
+        color: inherit;
+        text-decoration: none;
+    }
+}

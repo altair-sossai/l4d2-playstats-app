@@ -1,14 +1,28 @@
-<h2>{{server}}</h2>
+<ibm-skeleton-text [lines]="5" *ngIf="!server">
+</ibm-skeleton-text>
 
-<div class="tiles">
-    <a [routerLink]="['/server', server, 'matches']">
-        <ibm-tile>
-            Resultados por campanha
-        </ibm-tile>
-    </a>
-    <a [routerLink]="['/server', server, 'statistics']">
-        <ibm-tile>
-            Resultados por mapa
-        </ibm-tile>
-    </a>
-</div>
+<ng-container *ngIf="server">
+    <ibm-breadcrumb>
+        <ibm-breadcrumb-item href="/servers">
+            Servidores
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item [current]="true">
+            {{server.displayName}}
+        </ibm-breadcrumb-item>
+    </ibm-breadcrumb>
+
+    <h3>{{server.displayName}}</h3>
+
+    <div class="tiles">
+        <a [routerLink]="['/server', serverId, 'matches']">
+            <ibm-tile>
+                Resultados por campanha
+            </ibm-tile>
+        </a>
+        <a [routerLink]="['/server', serverId, 'statistics']">
+            <ibm-tile>
+                Resultados por mapa
+            </ibm-tile>
+        </a>
+    </div>
+</ng-container>
