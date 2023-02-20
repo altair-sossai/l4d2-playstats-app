@@ -1,1 +1,22 @@
-<pre>{{statistic|json}}</pre>
+<ibm-skeleton-text [lines]="5" *ngIf="!server || !statistic">
+</ibm-skeleton-text>
+
+<ng-container *ngIf="server && statistic">
+    <ibm-breadcrumb>
+        <ibm-breadcrumb-item href="/servers">
+            Servidores
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item href="/server/{{serverId}}">
+            {{server.displayName}}
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item href="/server/{{serverId}}/statistics">
+            Resultados por mapa
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item [current]="true">
+            {{statistic.statistic?.gameRound?.mapName}}
+        </ibm-breadcrumb-item>
+    </ibm-breadcrumb>
+
+    <app-statistic-detail [statistic]="statistic"></app-statistic-detail>
+
+</ng-container>

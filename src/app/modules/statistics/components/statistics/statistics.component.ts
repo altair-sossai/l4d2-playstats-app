@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TableHeaderItem, TableItem, TableModel, TableRow } from 'carbon-components-angular';
+import { ServerResult } from 'src/app/modules/server/results/server.result';
+import { ServerService } from 'src/app/modules/server/services/server.service';
 import { StatisticsSimplifiedResult } from '../../results/statistics-simplified.result';
 import { StatisticsService } from '../../services/statistics.service';
 
@@ -10,16 +13,64 @@ import { StatisticsService } from '../../services/statistics.service';
 })
 export class StatisticsComponent implements OnInit {
 
-  public server?: string | null;
+  public serverId?: string | null;
+  public server?: ServerResult;
   public statistics?: StatisticsSimplifiedResult[];
+  public statisticsTableModel?: TableModel;
+
+  @ViewChild('dateTimeTemplate') public dateTimeTemplate?: TemplateRef<any>;
+  @ViewChild('teamTemplate') public teamTemplate?: TemplateRef<any>;
+  @ViewChild('scoreTemplate') public scoreTemplate?: TemplateRef<any>;
+  @ViewChild('actionsTemplate') public actionsTemplate?: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute,
+    private serverService: ServerService,
     private statisticsService: StatisticsService) {
   }
 
   ngOnInit() {
-    this.server = this.route.snapshot.paramMap.get('server');
+    this.serverId = this.route.snapshot.paramMap.get('server');
+    this.serverService.find(this.serverId!).subscribe(server => this.server = server);
+    this.statisticsService.get(this.serverId!).subscribe(statistics => {
+      this.statistics = statistics;
+      this.statisticsTableModel = this.buildTableModel(statistics);
+    });
+  }
 
-    this.statisticsService.get(this.server!).subscribe(statistics => this.statistics = statistics);
+  buildTableModel(statistics: StatisticsSimplifiedResult[]): TableModel {
+    const tableModel = new TableModel();
+
+    tableModel.header = [
+      new TableHeaderItem({ data: "Início" }),
+      new TableHeaderItem({ data: "Fim" }),
+      new TableHeaderItem({ data: "Duração" }),
+      new TableHeaderItem({ data: "Mapa" }),
+      new TableHeaderItem({ data: "Equipe A" }),
+      new TableHeaderItem({ data: "Placar" }),
+      new TableHeaderItem({ data: "Equipe B" }),
+      new TableHeaderItem({ data: "Ações" })
+    ];
+
+    for (const statistic of statistics) {
+      const gameRound = statistic?.gameRound;
+      const scoring = statistic?.scoring;
+      const route = {
+        serverId: this.serverId,
+        statisticId: statistic.statisticId
+      }
+
+      tableModel.addRow(new TableRow(
+        new TableItem({ data: statistic?.mapStart, template: this.dateTimeTemplate, title: '' }),
+        new TableItem({ data: statistic?.mapEnd, template: this.dateTimeTemplate, title: '' }),
+        new TableItem({ data: statistic?.mapElapsed }),
+        new TableItem({ data: gameRound?.mapName, title: '' }),
+        new TableItem({ data: statistic.teamA, template: this.teamTemplate, title: '' }),
+        new TableItem({ data: scoring, template: this.scoreTemplate, title: '' }),
+        new TableItem({ data: statistic.teamB, template: this.teamTemplate, title: '' }),
+        new TableItem({ data: route, template: this.actionsTemplate, title: '' }),
+      ));
+    }
+
+    return tableModel;
   }
 }

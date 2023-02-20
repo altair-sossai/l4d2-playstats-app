@@ -9,4 +9,9 @@ export interface StatisticsSimplifiedResult {
     gameRound: GameRound | null;
     scoring: Scoring | null;
     playerNames: PlayerName[] | null;
+    teamA: PlayerName[];
+    teamB: PlayerName[];
+    mapStart: Date;
+    mapEnd: Date;
+    mapElapsed: string | null;
 }

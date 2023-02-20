@@ -26,10 +26,10 @@
 
 <ng-template #matchDateTemplate let-match="data">
     <div class="match-date">
-        {{match.matchStart | date:'dd/MM/YYYY HH:mm'}}
+        {{match.matchStart | date:'dd/MM/YYYY HH:mm:ss'}}
         <ng-container *ngIf="match.matchEnd">
-            <span> até </span>
-            {{match.matchEnd | date:'dd/MM/YYYY HH:mm'}}
+            <small> até </small>
+            {{match.matchEnd | date:'dd/MM/YYYY HH:mm:ss'}}
         </ng-container>
     </div>
 </ng-template>

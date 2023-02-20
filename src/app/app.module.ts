@@ -13,6 +13,7 @@ import { MatchStatisticsComponent } from './modules/matches/components/match-sta
 import { MatchesComponent } from './modules/matches/components/matches/matches.component';
 import { ServerComponent } from './modules/server/components/server/server.component';
 import { ServersComponent } from './modules/server/components/servers/servers.component';
+import { StatisticDetailComponent } from './modules/statistics/components/statistic-detail/statistic-detail.component';
 import { StatisticComponent } from './modules/statistics/components/statistic/statistic.component';
 import { StatisticsComponent } from './modules/statistics/components/statistics/statistics.component';
 
@@ -27,7 +28,8 @@ registerLocaleData(pt);
     MatchesComponent,
     MatchStatisticsComponent,
     MatchStatisticComponent,
-    StatisticComponent
+    StatisticComponent,
+    StatisticDetailComponent
   ],
   imports: [
     BrowserModule,
