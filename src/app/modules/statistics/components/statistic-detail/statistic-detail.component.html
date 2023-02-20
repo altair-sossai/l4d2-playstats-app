@@ -40,7 +40,7 @@
 </ibm-structured-list>
 
 <ibm-tabs type="container">
-    <ibm-tab *ngFor="let half of halves; let i = index" heading="{{ i == 0 ? 'Primeiro' : 'Segundo' }} round">
+    <ibm-tab *ngFor="let half of halves; let i = index" heading="{{ i === 0 ? 'Primeiro' : 'Segundo' }} round">
 
         <ibm-structured-list>
             <ibm-list-header>
