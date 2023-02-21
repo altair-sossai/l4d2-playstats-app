@@ -71,7 +71,7 @@
                 <ibm-list-column>
                     <table class="half-table">
                         <tbody>
-                            <tr>
+                            <tr *ngIf="half.roundHalf!.restarts">
                                 <th>Restarts:</th>
                                 <td>{{half.roundHalf!.restarts|number}}</td>
                             </tr>
@@ -79,49 +79,49 @@
                                 <th>Pills utilizadas:</th>
                                 <td>{{half.roundHalf!.pillsUsed|number}}</td>
                             </tr>
-                            <tr>
+                            <tr *ngIf="half.roundHalf!.kitsUsed">
                                 <th>Kits utilizados:</th>
                                 <td>{{half.roundHalf!.kitsUsed|number}}</td>
                             </tr>
-                            <tr>
+                            <tr *ngIf="half.roundHalf!.defibsUsed">
                                 <th>Desfib. utilizados:</th>
                                 <td>{{half.roundHalf!.defibsUsed|number}}</td>
                             </tr>
                             <tr>
-                                <th>Common mortos:</th>
-                                <td>{{half.roundHalf!.common|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Infectados mortos:</th>
-                                <td>{{half.roundHalf!.siKilled|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Dano aos infectados:</th>
-                                <td>{{half.roundHalf!.siDamage|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Infectados spawned:</th>
-                                <td>{{half.roundHalf!.siSpawned|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Witches mortas:</th>
-                                <td>{{half.roundHalf!.witchKilled|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Tanks mortos:</th>
-                                <td>{{half.roundHalf!.tankKilled|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Incapacitados:</th>
+                                <th>Sobreviventes - Incapacitados:</th>
                                 <td>{{half.roundHalf!.incaps|number}}</td>
                             </tr>
                             <tr>
-                                <th>Sobreviventes mortes:</th>
+                                <th>Sobreviventes - Mortos:</th>
                                 <td>{{half.roundHalf!.deaths|number}}</td>
                             </tr>
                             <tr>
-                                <th>Fire-friend:</th>
+                                <th>Sobreviventes - Fire-friend:</th>
                                 <td>{{half.roundHalf!.ffDamageTotal|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Infectados - Spawns:</th>
+                                <td>{{half.roundHalf!.siSpawned|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Infectados - Mortos:</th>
+                                <td>{{half.roundHalf!.siKilled|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Infectados - Dano recebido:</th>
+                                <td>{{half.roundHalf!.siDamage|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tanks - Mortos:</th>
+                                <td>{{half.roundHalf!.tankKilled|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Witches - Mortas:</th>
+                                <td>{{half.roundHalf!.witchKilled|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Commons - Mortos:</th>
+                                <td>{{half.roundHalf!.common|number}}</td>
                             </tr>
                         </tbody>
                     </table>
