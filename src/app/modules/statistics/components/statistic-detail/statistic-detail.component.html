@@ -190,6 +190,17 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <th>Vezes incapacitado:</th>
+                                <td *ngFor="let player of half.players">{{player.incaps|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Mortes:</th>
+                                <td *ngFor="let player of half.players">{{player.died|number}}</td>
+                            </tr>
+                            <tr>
+                                <td [attr.colspan]="half.players.length + 1"></td>
+                            </tr>
+                            <tr>
                                 <th>Shotgun - Disparos:</th>
                                 <td *ngFor="let player of half.players">{{player.shotsShotgun|number}}</td>
                             </tr>
@@ -400,72 +411,66 @@
                                 <td [attr.colspan]="half.players.length + 1"></td>
                             </tr>
                             <tr>
-                                <th>Common mortos:</th>
+                                <th>Commons - Mortos:</th>
                                 <td *ngFor="let player of half.players">{{player.common|number}}</td>
                             </tr>
                             <tr>
-                                <th>Common mortos durante o Tank:</th>
+                                <th>Commons - Mortos durante o Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.commonTankUp|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados mortos:</th>
+                                <td [attr.colspan]="half.players.length + 1"></td>
+                            </tr>
+                            <tr>
+                                <th>Infectados - Mortos:</th>
                                 <td *ngFor="let player of half.players">{{player.siKilled|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados mortos durante o Tank:</th>
+                                <th>Infectados - Mortos durante o Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.siKilledTankUp|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dano aos infectados:</th>
+                                <th>Infectados - Dano causado:</th>
                                 <td *ngFor="let player of half.players">{{player.siDamage|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dano aos infectados durante o Tank:</th>
+                                <th>Infectados - Dano causado durante o Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.siDamageTankUp|number}}</td>
                             </tr>
                             <tr>
-                                <th>Vezes incapacitado:</th>
-                                <td *ngFor="let player of half.players">{{player.incaps|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Mortes:</th>
-                                <td *ngFor="let player of half.players">{{player.died|number}}</td>
+                                <td [attr.colspan]="half.players.length + 1"></td>
                             </tr>
                             <tr>
                                 <th>Skeets:</th>
                                 <td *ngFor="let player of half.players">{{player.skeets|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dano skeets:</th>
+                                <th>Skeets - Dano:</th>
                                 <td *ngFor="let player of half.players">{{player.skeetsHurt|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Melee skeets:</th>
-                                <td *ngFor="let player of half.players">{{player.skeetsMelee|number}}</td>
                             </tr>
                             <tr>
                                 <th>Levels:</th>
                                 <td *ngFor="let player of half.players">{{player.levels|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dano levels:</th>
+                                <th>Levels - Dano:</th>
                                 <td *ngFor="let player of half.players">{{player.levelsHurt|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Pops:</th>
-                                <td *ngFor="let player of half.players">{{player.pops|number}}</td>
                             </tr>
                             <tr>
                                 <th>Crowns:</th>
                                 <td *ngFor="let player of half.players">{{player.crowns|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dano crowns:</th>
+                                <th>Crowns - Dano:</th>
                                 <td *ngFor="let player of half.players">{{player.crownsHurt|number}}</td>
                             </tr>
                             <tr>
-                                <th>Empurrões:</th>
-                                <td *ngFor="let player of half.players">{{player.shoves|number}}</td>
+                                <th>Melee skeets:</th>
+                                <td *ngFor="let player of half.players">{{player.skeetsMelee|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pops:</th>
+                                <td *ngFor="let player of half.players">{{player.pops|number}}</td>
                             </tr>
                             <tr>
                                 <th>Dead stops:</th>
@@ -478,6 +483,13 @@
                             <tr>
                                 <th>Self clears:</th>
                                 <td *ngFor="let player of half.players">{{player.selfClears|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Empurrões:</th>
+                                <td *ngFor="let player of half.players">{{player.shoves|number}}</td>
+                            </tr>
+                            <tr>
+                                <td [attr.colspan]="half.players.length + 1"></td>
                             </tr>
                             <tr>
                                 <th>Dano de queda:</th>
