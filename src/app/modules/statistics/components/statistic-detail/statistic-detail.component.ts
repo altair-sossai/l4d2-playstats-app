@@ -65,4 +65,8 @@ export class StatisticDetailComponent implements OnInit, AfterViewInit {
 
     return tableModel;
   }
+
+  percent(dividend: number, divisor: number): number {
+    return !divisor ? 0 : dividend / divisor;
+  }
 }

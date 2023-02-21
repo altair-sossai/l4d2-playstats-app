@@ -69,7 +69,7 @@
                     </ul>
                 </ibm-list-column>
                 <ibm-list-column>
-                    <table class="half-table">
+                    <table class="half-table" ibmTable size="sm">
                         <tbody>
                             <tr *ngIf="half.roundHalf!.restarts">
                                 <th>Restarts:</th>
@@ -127,7 +127,7 @@
                     </table>
                 </ibm-list-column>
                 <ibm-list-column>
-                    <table class="half-table">
+                    <table class="half-table" ibmTable size="sm">
                         <tbody>
                             <tr *ngIf="half.roundHalf!.startTime">
                                 <th>Início do round:</th>
@@ -179,7 +179,7 @@
             </ibm-list-header>
             <ibm-list-row>
                 <ibm-list-column>
-                    <table class="stats-table" ibmTable>
+                    <table class="stats-table" ibmTable size="sm">
                         <thead>
                             <tr>
                                 <th></th>
@@ -190,92 +190,214 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th>Shotgun - Tiros:</th>
+                                <th>Shotgun - Disparos:</th>
                                 <td *ngFor="let player of half.players">{{player.shotsShotgun|number}}</td>
                             </tr>
                             <tr>
-                                <th>Shotgun - Acertos:</th>
-                                <td *ngFor="let player of half.players">{{player.hitsShotgun|number}}</td>
+                                <th>Shotgun - Hits:</th>
+                                <td *ngFor="let player of half.players">
+                                    {{player.hitsShotgun|number}}
+                                </td>
                             </tr>
                             <tr>
-                                <th>Shotgun - Acertos em infectados:</th>
+                                <th>Shotgun - Hits (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsShotgun, player.shotsShotgun)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Shotgun - Hits em infectados:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSiShotgun|number}}</td>
                             </tr>
                             <tr>
-                                <th>Shotgun - Acertos no Tank:</th>
+                                <th>Shotgun - Hits em infectados (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsSiShotgun, player.shotsShotgun)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Shotgun - Hits no Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsTankShotgun|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - Tiros:</th>
+                                <th>Shotgun - Hits no Tank (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsTankShotgun, player.shotsShotgun)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.colspan]="half.players.length + 1"></td>
+                            </tr>
+                            <tr>
+                                <th>SMG - Disparos:</th>
                                 <td *ngFor="let player of half.players">{{player.shotsSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - Acertos:</th>
+                                <th>SMG - Hits:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - Acertos em infectados:</th>
+                                <th>SMG - Hits (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsSmg, player.shotsSmg)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>SMG - Hits em infectados:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSiSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - Acertos no Tank:</th>
+                                <th>SMG - Hits em infectados (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsSiSmg, player.shotsSmg)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>SMG - Hits no Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsTankSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - Headshots:</th>
+                                <th>SMG - Hits no Tank (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsTankSmg, player.shotsSmg)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>SMG - HS:</th>
                                 <td *ngFor="let player of half.players">{{player.headshotsSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - Headshots em infectados:</th>
+                                <th>SMG - HS (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.headshotsSmg, player.shotsSmg)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>SMG - HS em infectados:</th>
                                 <td *ngFor="let player of half.players">{{player.headshotsSiSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>Tiros de sniper:</th>
+                                <th>SMG - HS em infectados (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.headshotsSiSmg, player.shotsSmg)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.colspan]="half.players.length + 1"></td>
+                            </tr>
+                            <tr>
+                                <th>Sniper - Disparos:</th>
                                 <td *ngFor="let player of half.players">{{player.shotsSniper|number}}</td>
                             </tr>
                             <tr>
-                                <th>Tiros de pistola:</th>
-                                <td *ngFor="let player of half.players">{{player.shotsPistol|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Acertos de sniper:</th>
+                                <th>Sniper - Hits:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSniper|number}}</td>
                             </tr>
                             <tr>
-                                <th>Acertos de pistola:</th>
-                                <td *ngFor="let player of half.players">{{player.hitsPistol|number}}</td>
+                                <th>Sniper - Hits (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsSniper, player.shotsSniper)|percent:'.2'}}
+                                </td>
                             </tr>
                             <tr>
-                                <th>Headshots de sniper:</th>
-                                <td *ngFor="let player of half.players">{{player.headshotsSniper|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Headshots de pistola:</th>
-                                <td *ngFor="let player of half.players">{{player.headshotsPistol|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Headshots (infectados) de sniper:</th>
-                                <td *ngFor="let player of half.players">{{player.headshotsSiSniper|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Headshots (infectados) de pistola:</th>
-                                <td *ngFor="let player of half.players">{{player.headshotsSiPistol|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Acertos (infectados) de sniper:</th>
+                                <th>Sniper - Hits em infectados:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSiSniper|number}}</td>
                             </tr>
                             <tr>
-                                <th>Acertos (infectados) de pistola:</th>
-                                <td *ngFor="let player of half.players">{{player.hitsSiPistol|number}}</td>
+                                <th>Sniper - Hits em infectados (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsSiSniper, player.shotsSniper)|percent:'.2'}}
+                                </td>
                             </tr>
                             <tr>
-                                <th>Acertos (Tank) de sniper:</th>
+                                <th>Sniper - Hits no Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsTankSniper|number}}</td>
                             </tr>
                             <tr>
-                                <th>Acertos (Tank) de pistola:</th>
+                                <th>Sniper - Hits no Tank (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsTankSniper, player.shotsSniper)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Sniper - HS:</th>
+                                <td *ngFor="let player of half.players">{{player.headshotsSniper|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Sniper - HS (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.headshotsSniper, player.shotsSniper)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Sniper - HS em infectados:</th>
+                                <td *ngFor="let player of half.players">{{player.headshotsSiSniper|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Sniper - HS em infectados (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.headshotsSiSniper, player.shotsSniper)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.colspan]="half.players.length + 1"></td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - Disparos:</th>
+                                <td *ngFor="let player of half.players">{{player.shotsPistol|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - Hits:</th>
+                                <td *ngFor="let player of half.players">{{player.hitsPistol|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - Hits (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsPistol, player.shotsPistol)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - Hits em infectados:</th>
+                                <td *ngFor="let player of half.players">{{player.hitsSiPistol|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - Hits em infectados (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsSiPistol, player.shotsPistol)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - Hits no Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsTankPistol|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - Hits no Tank (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.hitsTankPistol, player.shotsPistol)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - HS:</th>
+                                <td *ngFor="let player of half.players">{{player.headshotsPistol|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - HS (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.headshotsPistol, player.shotsPistol)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - HS em infectados:</th>
+                                <td *ngFor="let player of half.players">{{player.headshotsSiPistol|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pistola - HS em infectados (%):</th>
+                                <td *ngFor="let player of half.players">
+                                    {{percent(player.headshotsSiPistol, player.shotsPistol)|percent:'.2'}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td [attr.colspan]="half.players.length + 1"></td>
                             </tr>
                             <tr>
                                 <th>Common mortos:</th>
@@ -402,7 +524,7 @@
                                 <td *ngFor="let player of half.players">{{player.ffGivenPellet|number}}</td>
                             </tr>
                             <tr>
-                                <th>Tiros acertados em amigos:</th>
+                                <th>Disparos acertados em amigos:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenBullet|number}}</td>
                             </tr>
                             <tr>
@@ -478,7 +600,7 @@
                 </ibm-list-column>
                 <ibm-list-column></ibm-list-column>
                 <ibm-list-column>
-                    <table class="stats-table" ibmTable>
+                    <table class="stats-table" ibmTable size="sm">
                         <thead>
                             <tr>
                                 <th></th>
