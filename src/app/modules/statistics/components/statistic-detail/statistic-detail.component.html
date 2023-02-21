@@ -190,12 +190,20 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <th>Mortes:</th>
+                                <td *ngFor="let player of half.players">{{player.died|number}}</td>
+                            </tr>
+                            <tr>
                                 <th>Vezes incapacitado:</th>
                                 <td *ngFor="let player of half.players">{{player.incaps|number}}</td>
                             </tr>
                             <tr>
-                                <th>Mortes:</th>
-                                <td *ngFor="let player of half.players">{{player.died|number}}</td>
+                                <th>Dano recebido:</th>
+                                <td *ngFor="let player of half.players">{{player.dmgTaken|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Dano por queda:</th>
+                                <td *ngFor="let player of half.players">{{player.fallDamage|number}}</td>
                             </tr>
                             <tr>
                                 <td [attr.colspan]="half.players.length + 1"></td>
@@ -419,9 +427,6 @@
                                 <td *ngFor="let player of half.players">{{player.commonTankUp|number}}</td>
                             </tr>
                             <tr>
-                                <td [attr.colspan]="half.players.length + 1"></td>
-                            </tr>
-                            <tr>
                                 <th>Infectados - Mortos:</th>
                                 <td *ngFor="let player of half.players">{{player.siKilled|number}}</td>
                             </tr>
@@ -436,6 +441,25 @@
                             <tr>
                                 <th>Infectados - Dano causado durante o Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.siDamageTankUp|number}}</td>
+                            </tr>
+                            <tr>
+                                <td [attr.colspan]="half.players.length + 1"></td>
+                            </tr>
+                            <tr>
+                                <th>Tank - Dano causado:</th>
+                                <td *ngFor="let player of half.players">{{player.tankDamage|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tank - Melees acertadas:</th>
+                                <td *ngFor="let player of half.players">{{player.meleesOnTank|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tank - Pedras tomadas:</th>
+                                <td *ngFor="let player of half.players">{{player.rockEats|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Witch - Dano causado:</th>
+                                <td *ngFor="let player of half.players">{{player.witchDamage|number}}</td>
                             </tr>
                             <tr>
                                 <td [attr.colspan]="half.players.length + 1"></td>
@@ -469,8 +493,8 @@
                                 <td *ngFor="let player of half.players">{{player.skeetsMelee|number}}</td>
                             </tr>
                             <tr>
-                                <th>Pops:</th>
-                                <td *ngFor="let player of half.players">{{player.pops|number}}</td>
+                                <th>Rock skeets:</th>
+                                <td *ngFor="let player of half.players">{{player.rockSkeets|number}}</td>
                             </tr>
                             <tr>
                                 <th>Dead stops:</th>
@@ -485,6 +509,18 @@
                                 <td *ngFor="let player of half.players">{{player.selfClears|number}}</td>
                             </tr>
                             <tr>
+                                <th>Clears:</th>
+                                <td *ngFor="let player of half.players">{{player.clears|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Clears - Média tempo:</th>
+                                <td *ngFor="let player of half.players">{{player.avgClearTime|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>Pops:</th>
+                                <td *ngFor="let player of half.players">{{player.pops|number}}</td>
+                            </tr>
+                            <tr>
                                 <th>Empurrões:</th>
                                 <td *ngFor="let player of half.players">{{player.shoves|number}}</td>
                             </tr>
@@ -492,120 +528,87 @@
                                 <td [attr.colspan]="half.players.length + 1"></td>
                             </tr>
                             <tr>
-                                <th>Dano de queda:</th>
-                                <td *ngFor="let player of half.players">{{player.fallDamage|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Dano recebido:</th>
-                                <td *ngFor="let player of half.players">{{player.dmgTaken|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Fire-friend causado:</th>
-                                <td *ngFor="let player of half.players">{{player.ffGiven|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Fire-friend recebido:</th>
-                                <td *ngFor="let player of half.players">{{player.ffTaken|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Fire-friend hits:</th>
+                                <th>Fire-friend Hits:</th>
                                 <td *ngFor="let player of half.players">{{player.ffHits|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dano ao Tank:</th>
-                                <td *ngFor="let player of half.players">{{player.tankDamage|number}}</td>
+                                <th>Fire-friend dado (FFG):</th>
+                                <td *ngFor="let player of half.players">{{player.ffGiven|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dano a Witch:</th>
-                                <td *ngFor="let player of half.players">{{player.witchDamage|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Melees no Tank:</th>
-                                <td *ngFor="let player of half.players">{{player.meleesOnTank|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Rock skeets:</th>
-                                <td *ngFor="let player of half.players">{{player.rockSkeets|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Pedras tomadas:</th>
-                                <td *ngFor="let player of half.players">{{player.rockEats|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Projéteis acertados em amigos:</th>
+                                <th>FFG - Pellet:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenPellet|number}}</td>
                             </tr>
                             <tr>
-                                <th>Disparos acertados em amigos:</th>
+                                <th>FFG - Bullet:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenBullet|number}}</td>
                             </tr>
                             <tr>
-                                <th>Disparos de sniper acertados em amigos:</th>
+                                <th>FFG - Sniper:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenSniper|number}}</td>
                             </tr>
                             <tr>
-                                <th>Melles acertadas em amigos:</th>
+                                <th>FFG - Melles:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenMelee|number}}</td>
                             </tr>
                             <tr>
-                                <th>Fire-friend dado:</th>
+                                <th>FFG - Fogo:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenFire|number}}</td>
                             </tr>
                             <tr>
-                                <th>Amigos incapacitados por fire-friend:</th>
+                                <th>FFG - Incapacitados:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenIncap|number}}</td>
                             </tr>
                             <tr>
-                                <th>Fire-friend dado (outros):</th>
-                                <td *ngFor="let player of half.players">{{player.ffGivenOther|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Dano a si mesmo:</th>
+                                <th>FFG - A si mesmo:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenSelf|number}}</td>
                             </tr>
                             <tr>
-                                <th>Projéteis recebidos de amigos:</th>
-                                <td *ngFor="let player of half.players">{{player.ffTakenPellet|number}}</td>
+                                <th>FFG - Outros:</th>
+                                <td *ngFor="let player of half.players">{{player.ffGivenOther|number}}</td>
                             </tr>
                             <tr>
-                                <th>Disparos recebidos de amigos:</th>
-                                <td *ngFor="let player of half.players">{{player.ffTakenBullet|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Disparos de sniper recebidos de amigos:</th>
-                                <td *ngFor="let player of half.players">{{player.ffTakenSniper|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Melles recebidas em amigos:</th>
-                                <td *ngFor="let player of half.players">{{player.ffTakenMelee|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Fire-friend recebido:</th>
-                                <td *ngFor="let player of half.players">{{player.ffTakenFire|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Incapacitado por fire-friend:</th>
-                                <td *ngFor="let player of half.players">{{player.ffTakenIncap|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Fire-friend recebido (outros):</th>
-                                <td *ngFor="let player of half.players">{{player.ffTakenOther|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Total fire-friend dado:</th>
+                                <th>FFG - Total:</th>
                                 <td *ngFor="let player of half.players">{{player.ffGivenTotal|number}}</td>
                             </tr>
                             <tr>
-                                <th>Total fire-friend recebido:</th>
+                                <td [attr.colspan]="half.players.length + 1"></td>
+                            </tr>
+                            <tr>
+                                <th>Fire-friend recebido (FFT):</th>
+                                <td [attr.colspan]="half.players.length"></td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Pellet :</th>
+                                <td *ngFor="let player of half.players">{{player.ffTakenPellet|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Bullet:</th>
+                                <td *ngFor="let player of half.players">{{player.ffTakenBullet|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Sniper:</th>
+                                <td *ngFor="let player of half.players">{{player.ffTakenSniper|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Melles:</th>
+                                <td *ngFor="let player of half.players">{{player.ffTakenMelee|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Fogo:</th>
+                                <td *ngFor="let player of half.players">{{player.ffTakenFire|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Incapacitados:</th>
+                                <td *ngFor="let player of half.players">{{player.ffTakenIncap|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Outros:</th>
+                                <td *ngFor="let player of half.players">{{player.ffTakenOther|number}}</td>
+                            </tr>
+                            <tr>
+                                <th>FFT - Total:</th>
                                 <td *ngFor="let player of half.players">{{player.ffTakenTotal|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Clears:</th>
-                                <td *ngFor="let player of half.players">{{player.clears|number}}</td>
-                            </tr>
-                            <tr>
-                                <th>Média tempo clear:</th>
-                                <td *ngFor="let player of half.players">{{player.avgClearTime|number}}</td>
                             </tr>
                         </tbody>
                     </table>
