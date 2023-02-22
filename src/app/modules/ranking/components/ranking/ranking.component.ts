@@ -18,6 +18,7 @@ export class RankingComponent implements OnInit {
   public playersTableModel?: TableModel;
 
   @ViewChild('playerNameTemplate') public playerNameTemplate?: TemplateRef<any>;
+  @ViewChild('numberTemplate') public numberTemplate?: TemplateRef<any>;
   @ViewChild('pointsTemplate') public pointsTemplate?: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute,
@@ -40,6 +41,8 @@ export class RankingComponent implements OnInit {
     tableModel.header = [
       new TableHeaderItem({ data: "Posição", className: 'text-center' }),
       new TableHeaderItem({ data: "Nome" }),
+      new TableHeaderItem({ data: "Vitórias", className: 'text-center' }),
+      new TableHeaderItem({ data: "Derrotas", className: 'text-center' }),
       new TableHeaderItem({ data: "Pontos", className: 'text-center' }),
     ];
 
@@ -47,6 +50,8 @@ export class RankingComponent implements OnInit {
       tableModel.addRow(new TableRow(
         new TableItem({ data: player.position }),
         new TableItem({ data: player, template: this.playerNameTemplate, title: player.name }),
+        new TableItem({ data: player.wins, template: this.numberTemplate, title: player.wins }),
+        new TableItem({ data: player.loss, template: this.numberTemplate, title: player.loss }),
         new TableItem({ data: player.points, template: this.pointsTemplate, title: player.points })
       ));
     }

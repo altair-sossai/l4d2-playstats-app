@@ -28,6 +28,10 @@
     <a ibmLink [href]="player.profileUrl" target="_blank">{{player.name}}</a>
 </ng-template>
 
+<ng-template #numberTemplate let-number="data">
+    {{number|number}}
+</ng-template>
+
 <ng-template #pointsTemplate let-points="data">
     {{points|number:'1.2-2'}}
 </ng-template>

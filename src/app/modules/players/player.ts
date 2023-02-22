@@ -6,4 +6,7 @@ export interface Player {
     position: number;
     name: string | null;
     points: number;
+    draw: number;
+    wins: number;
+    loss: number;
 }
