@@ -14,6 +14,11 @@
     <h3>{{server.displayName}}</h3>
 
     <div class="tiles">
+        <a [routerLink]="['/server', serverId, 'ranking']">
+            <ibm-tile>
+                Ranking
+            </ibm-tile>
+        </a>
         <a [routerLink]="['/server', serverId, 'matches']">
             <ibm-tile>
                 Resultados por campanha

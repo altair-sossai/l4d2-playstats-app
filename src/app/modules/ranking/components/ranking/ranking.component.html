@@ -1,0 +1,33 @@
+<ibm-skeleton-text [lines]="5" *ngIf="!server || !players">
+</ibm-skeleton-text>
+
+<ng-container *ngIf="server && players">
+    <ibm-breadcrumb>
+        <ibm-breadcrumb-item href="/servers">
+            Servidores
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item href="/server/{{serverId}}">
+            {{server.displayName}}
+        </ibm-breadcrumb-item>
+        <ibm-breadcrumb-item [current]="true">
+            Ranking
+        </ibm-breadcrumb-item>
+    </ibm-breadcrumb>
+
+    <ibm-table-container>
+        <ibm-table-header>
+            <h4 ibmTableHeaderTitle>Ranking</h4>
+            <p ibmTableHeaderDescription>Ranking dos jogos</p>
+        </ibm-table-header>
+        <ibm-table [showSelectionColumn]="false" [sortable]="false" [model]="playersTableModel!" size="sm">
+        </ibm-table>
+    </ibm-table-container>
+</ng-container>
+
+<ng-template #playerNameTemplate let-player="data">
+    <a ibmLink [href]="player.profileUrl" target="_blank">{{player.name}}</a>
+</ng-template>
+
+<ng-template #pointsTemplate let-points="data">
+    {{points|number:'1.2-2'}}
+</ng-template>
