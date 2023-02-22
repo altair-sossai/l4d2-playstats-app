@@ -100,15 +100,15 @@
                                 <td>{{half.roundHalf!.ffDamageTotal|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados - Spawns:</th>
+                                <th>Infectados Especiais - Spawns:</th>
                                 <td>{{half.roundHalf!.siSpawned|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados - Mortos:</th>
+                                <th>Infectados Especiais - Mortos:</th>
                                 <td>{{half.roundHalf!.siKilled|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados - Dano recebido:</th>
+                                <th>Infectados Especiais - Dano recebido:</th>
                                 <td>{{half.roundHalf!.siDamage|number}}</td>
                             </tr>
                             <tr>
@@ -225,11 +225,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Shotgun - Hits em infectados:</th>
+                                <th>Shotgun - Hits em Infectados Especiais:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSiShotgun|number}}</td>
                             </tr>
                             <tr>
-                                <th>Shotgun - Hits em infectados (%):</th>
+                                <th>Shotgun - Hits em Infectados Especiais (%):</th>
                                 <td *ngFor="let player of half.players">
                                     {{percent(player.hitsSiShotgun, player.shotsShotgun)|percent:'.2'}}
                                 </td>
@@ -262,11 +262,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>SMG - Hits em infectados:</th>
+                                <th>SMG - Hits em Infectados Especiais:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSiSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - Hits em infectados (%):</th>
+                                <th>SMG - Hits em Infectados Especiais (%):</th>
                                 <td *ngFor="let player of half.players">
                                     {{percent(player.hitsSiSmg, player.shotsSmg)|percent:'.2'}}
                                 </td>
@@ -292,11 +292,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>SMG - HS em infectados:</th>
+                                <th>SMG - HS em Infectados Especiais:</th>
                                 <td *ngFor="let player of half.players">{{player.headshotsSiSmg|number}}</td>
                             </tr>
                             <tr>
-                                <th>SMG - HS em infectados (%):</th>
+                                <th>SMG - HS em Infectados Especiais (%):</th>
                                 <td *ngFor="let player of half.players">
                                     {{percent(player.headshotsSiSmg, player.shotsSmg)|percent:'.2'}}
                                 </td>
@@ -319,11 +319,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Sniper - Hits em infectados:</th>
+                                <th>Sniper - Hits em Infectados Especiais:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSiSniper|number}}</td>
                             </tr>
                             <tr>
-                                <th>Sniper - Hits em infectados (%):</th>
+                                <th>Sniper - Hits em Infectados Especiais (%):</th>
                                 <td *ngFor="let player of half.players">
                                     {{percent(player.hitsSiSniper, player.shotsSniper)|percent:'.2'}}
                                 </td>
@@ -349,11 +349,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Sniper - HS em infectados:</th>
+                                <th>Sniper - HS em Infectados Especiais:</th>
                                 <td *ngFor="let player of half.players">{{player.headshotsSiSniper|number}}</td>
                             </tr>
                             <tr>
-                                <th>Sniper - HS em infectados (%):</th>
+                                <th>Sniper - HS em Infectados Especiais (%):</th>
                                 <td *ngFor="let player of half.players">
                                     {{percent(player.headshotsSiSniper, player.shotsSniper)|percent:'.2'}}
                                 </td>
@@ -376,11 +376,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Pistol - Hits em infectados:</th>
+                                <th>Pistol - Hits em Infectados Especiais:</th>
                                 <td *ngFor="let player of half.players">{{player.hitsSiPistol|number}}</td>
                             </tr>
                             <tr>
-                                <th>Pistol - Hits em infectados (%):</th>
+                                <th>Pistol - Hits em Infectados Especiais (%):</th>
                                 <td *ngFor="let player of half.players">
                                     {{percent(player.hitsSiPistol, player.shotsPistol)|percent:'.2'}}
                                 </td>
@@ -406,11 +406,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Pistol - HS em infectados:</th>
+                                <th>Pistol - HS em Infectados Especiais:</th>
                                 <td *ngFor="let player of half.players">{{player.headshotsSiPistol|number}}</td>
                             </tr>
                             <tr>
-                                <th>Pistol - HS em infectados (%):</th>
+                                <th>Pistol - HS em Infectados Especiais (%):</th>
                                 <td *ngFor="let player of half.players">
                                     {{percent(player.headshotsSiPistol, player.shotsPistol)|percent:'.2'}}
                                 </td>
@@ -427,19 +427,19 @@
                                 <td *ngFor="let player of half.players">{{player.commonTankUp|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados - Mortos:</th>
+                                <th>Infectados Especiais - Mortos:</th>
                                 <td *ngFor="let player of half.players">{{player.siKilled|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados - Mortos durante o Tank:</th>
+                                <th>Infectados Especiais - Mortos durante o Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.siKilledTankUp|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados - Dano causado:</th>
+                                <th>Infectados Especiais - Dano causado:</th>
                                 <td *ngFor="let player of half.players">{{player.siDamage|number}}</td>
                             </tr>
                             <tr>
-                                <th>Infectados - Dano causado durante o Tank:</th>
+                                <th>Infectados Especiais - Dano causado durante o Tank:</th>
                                 <td *ngFor="let player of half.players">{{player.siDamageTankUp|number}}</td>
                             </tr>
                             <tr>
@@ -481,7 +481,7 @@
                                 <td *ngFor="let player of half.players">{{player.levelsHurt|number}}</td>
                             </tr>
                             <tr>
-                                <th>Crowns:</th>
+                                <th>Crowns (Matar a Witch com 1 disparo):</th>
                                 <td *ngFor="let player of half.players">{{player.crowns|number}}</td>
                             </tr>
                             <tr>
@@ -497,7 +497,7 @@
                                 <td *ngFor="let player of half.players">{{player.rockSkeets|number}}</td>
                             </tr>
                             <tr>
-                                <th>Dead stops:</th>
+                                <th>Dead stops(Coronhada em um hunter que tentou um pounce):</th>
                                 <td *ngFor="let player of half.players">{{player.deadStops|number}}</td>
                             </tr>
                             <tr>
