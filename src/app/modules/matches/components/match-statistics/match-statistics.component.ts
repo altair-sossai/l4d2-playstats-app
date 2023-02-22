@@ -53,6 +53,7 @@ export class MatchStatisticsComponent implements OnInit {
       new TableHeaderItem({ data: "Início" }),
       new TableHeaderItem({ data: "Fim" }),
       new TableHeaderItem({ data: "Duração" }),
+      new TableHeaderItem({ data: "Configuração" }),
       new TableHeaderItem({ data: "Mapa" }),
       new TableHeaderItem({ data: "Placar" }),
       new TableHeaderItem({ data: "Ações" })
@@ -73,7 +74,8 @@ export class MatchStatisticsComponent implements OnInit {
         new TableItem({ data: result.statistic?.mapStart, template: this.dateTimeTemplate, title: '' }),
         new TableItem({ data: result.statistic?.mapEnd, template: this.dateTimeTemplate, title: '' }),
         new TableItem({ data: result.statistic?.mapElapsed }),
-        new TableItem({ data: gameRound?.mapName, title: '' }),
+        new TableItem({ data: gameRound?.configurationName }),
+        new TableItem({ data: gameRound?.mapName }),
         new TableItem({ data: scoring, template: this.scoreTemplate, title: '' }),
         new TableItem({ data: route, template: this.actionsTemplate, title: '' }),
       ));

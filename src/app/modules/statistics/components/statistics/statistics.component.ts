@@ -18,7 +18,7 @@ export class StatisticsComponent implements OnInit {
   public statistics?: StatisticsSimplifiedResult[];
   public statisticsTableModel?: TableModel;
 
-  @ViewChild('dateTimeTemplate') public dateTimeTemplate?: TemplateRef<any>;
+  @ViewChild('mapDateTemplate') public mapDateTemplate?: TemplateRef<any>;
   @ViewChild('teamTemplate') public teamTemplate?: TemplateRef<any>;
   @ViewChild('scoreTemplate') public scoreTemplate?: TemplateRef<any>;
   @ViewChild('actionsTemplate') public actionsTemplate?: TemplateRef<any>;
@@ -41,9 +41,9 @@ export class StatisticsComponent implements OnInit {
     const tableModel = new TableModel();
 
     tableModel.header = [
-      new TableHeaderItem({ data: "Início" }),
-      new TableHeaderItem({ data: "Fim" }),
+      new TableHeaderItem({ data: "Data", className: 'text-center' }),
       new TableHeaderItem({ data: "Duração" }),
+      new TableHeaderItem({ data: "Configuração" }),
       new TableHeaderItem({ data: "Mapa" }),
       new TableHeaderItem({ data: "Equipe A" }),
       new TableHeaderItem({ data: "Placar" }),
@@ -60,10 +60,10 @@ export class StatisticsComponent implements OnInit {
       }
 
       tableModel.addRow(new TableRow(
-        new TableItem({ data: statistic?.mapStart, template: this.dateTimeTemplate, title: '' }),
-        new TableItem({ data: statistic?.mapEnd, template: this.dateTimeTemplate, title: '' }),
+        new TableItem({ data: statistic, template: this.mapDateTemplate, title: '' }),
         new TableItem({ data: statistic?.mapElapsed }),
-        new TableItem({ data: gameRound?.mapName, title: '' }),
+        new TableItem({ data: gameRound?.configurationName }),
+        new TableItem({ data: gameRound?.mapName }),
         new TableItem({ data: statistic.teamA, template: this.teamTemplate, title: '' }),
         new TableItem({ data: scoring, template: this.scoreTemplate, title: '' }),
         new TableItem({ data: statistic.teamB, template: this.teamTemplate, title: '' }),

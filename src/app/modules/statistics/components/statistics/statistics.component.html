@@ -25,8 +25,14 @@
 
 </ng-container>
 
-<ng-template #dateTimeTemplate let-date="data">
-    {{date | date:'dd/MM/YYYY HH:mm:ss'}}
+<ng-template #mapDateTemplate let-stats="data">
+    <div class="map-date">
+        {{stats?.mapStart | date:'dd/MM/YYYY HH:mm:ss'}}
+        <ng-container *ngIf="stats?.mapEnd">
+            <small> até </small>
+            {{stats?.mapEnd | date:'dd/MM/YYYY HH:mm:ss'}}
+        </ng-container>
+    </div>
 </ng-template>
 
 <ng-template #teamTemplate let-players="data">
