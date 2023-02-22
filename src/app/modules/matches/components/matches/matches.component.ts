@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TableHeaderItem, TableItem, TableModel, TableRow } from 'carbon-components-angular';
 import { ServerResult } from 'src/app/modules/server/results/server.result';
 import { ServerService } from 'src/app/modules/server/services/server.service';
-import { MatchResult } from '../../results/match.result';
+import { Match } from '../../match';
 import { MatchesService } from '../../services/matches.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class MatchesComponent implements OnInit {
 
   public serverId?: string | null;
   public server?: ServerResult;
-  public matches?: MatchResult[];
+  public matches?: Match[];
   public matchesTableModel?: TableModel;
 
   @ViewChild('matchDateTemplate') public matchDateTemplate?: TemplateRef<any>;
@@ -37,7 +37,7 @@ export class MatchesComponent implements OnInit {
     });
   }
 
-  buildTableModel(matches: MatchResult[]): TableModel {
+  buildTableModel(matches: Match[]): TableModel {
     const tableModel = new TableModel();
 
     tableModel.header = [

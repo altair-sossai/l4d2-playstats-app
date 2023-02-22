@@ -5,7 +5,7 @@ import { ServerResult } from 'src/app/modules/server/results/server.result';
 import { ServerService } from 'src/app/modules/server/services/server.service';
 import { StatisticsResult } from 'src/app/modules/statistics/results/statistics.result';
 import { StatisticsService } from 'src/app/modules/statistics/services/statistics.service';
-import { MatchResult } from '../../results/match.result';
+import { Match } from '../../match';
 import { MatchesService } from '../../services/matches.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class MatchStatisticsComponent implements OnInit {
   public server?: ServerResult;
   public start?: string | null;
   public end?: string | null;
-  public match?: MatchResult;
+  public match?: Match;
   public statistics?: StatisticsResult[];
   public statisticsTableModel?: TableModel;
 
