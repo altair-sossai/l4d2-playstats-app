@@ -19,10 +19,48 @@
             <h4 ibmTableHeaderTitle>Ranking</h4>
             <p ibmTableHeaderDescription>Ranking dos jogos</p>
         </ibm-table-header>
+        <ibm-table-toolbar>
+            <ibm-table-toolbar-content>
+                <button ibmButton="secondary" size="sm" (click)="explanation = true">
+                    Explicação do ranking
+                </button>
+            </ibm-table-toolbar-content>
+        </ibm-table-toolbar>
         <ibm-table [showSelectionColumn]="false" [model]="playersTableModel!">
         </ibm-table>
     </ibm-table-container>
 </ng-container>
+
+<ibm-modal [open]="explanation" (close)="explanationClosed()" (overlaySelected)="explanationClosed()">
+    <ibm-modal-header (closeSelect)="explanationClosed()">
+        <p>
+            Como é feito o cálculo da pontuação?
+        </p>
+    </ibm-modal-header>
+    <div class="bx--modal-content">
+        <ul ibmList class="explanation">
+            <li ibmListItem>
+                Cada campanha distribui <b>1.000</b> pontos aos jogadores,
+                <b>75%</b> dos pontos são distribuídos entre os jogadores vencedores
+                e <b>25%</b> aos jogadores derrotados.
+            </li>
+            <li ibmListItem>
+                Cada mapa/round distribui por igual os pontos destinados para cada equipe (vencedora / derrotada)
+            </li>
+            <li ibmListItem>
+                Cada round leva em considerações várias métricas para identificar qual jogador deve receber mais pontos
+                por melhor performance durante o jogo.
+            </li>
+            <li ibmListItem>
+                O jogador que abandonar a partida <b>NÃO</b> terá pontuação contabilizada.
+            </li>
+            <li ibmListItem>
+                O jogador que substituir outro e ficar até o final,
+                irá receber a pontuação proporcional aos mapas que jogou.
+            </li>
+        </ul>
+    </div>
+</ibm-modal>
 
 <ng-template #positionTemplate let-position="data">
     <img src="../../../../../assets/first-place.png" *ngIf="position === 1" class="medal" />
