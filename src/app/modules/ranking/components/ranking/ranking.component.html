@@ -19,10 +19,19 @@
             <h4 ibmTableHeaderTitle>Ranking</h4>
             <p ibmTableHeaderDescription>Ranking dos jogos</p>
         </ibm-table-header>
-        <ibm-table [showSelectionColumn]="false" [sortable]="false" [model]="playersTableModel!" size="sm">
+        <ibm-table [showSelectionColumn]="false" [model]="playersTableModel!">
         </ibm-table>
     </ibm-table-container>
 </ng-container>
+
+<ng-template #positionTemplate let-position="data">
+    <img src="../../../../../assets/first-place.png" *ngIf="position === 1" class="medal" />
+    <img src="../../../../../assets/second-place.png" *ngIf="position === 2" class="medal" />
+    <img src="../../../../../assets/third-place.png" *ngIf="position === 3" class="medal" />
+    <img src="../../../../../assets/fourth-place.png" *ngIf="position === 4" class="medal" />
+    <img src="../../../../../assets/fifth-place.png" *ngIf="position === 5" class="medal" />
+    <ng-container *ngIf="position > 5">{{position}}</ng-container>
+</ng-template>
 
 <ng-template #playerNameTemplate let-player="data">
     <a ibmLink [href]="player.profileUrl" target="_blank">{{player.name}}</a>
@@ -33,5 +42,5 @@
 </ng-template>
 
 <ng-template #pointsTemplate let-points="data">
-    {{points|number:'1.2-2'}}
+    {{points|number:'1.0-0'}}
 </ng-template>
