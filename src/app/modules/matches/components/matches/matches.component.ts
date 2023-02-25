@@ -42,8 +42,9 @@ export class MatchesComponent implements OnInit {
 
     tableModel.header = [
       new TableHeaderItem({ data: "Data", className: 'text-center' }),
-      new TableHeaderItem({ data: "Duração" }),
+      new TableHeaderItem({ data: "Duração", className: 'text-center' }),
       new TableHeaderItem({ data: "Campanha" }),
+      new TableHeaderItem({ data: "Mapas", className: 'text-center' }),
       new TableHeaderItem({ data: "Equipe A" }),
       new TableHeaderItem({ data: "Placar" }),
       new TableHeaderItem({ data: "Equipe B" }),
@@ -55,6 +56,7 @@ export class MatchesComponent implements OnInit {
         new TableItem({ data: match, template: this.matchDateTemplate, title: '' }),
         new TableItem({ data: match.matchElapsed }),
         new TableItem({ data: match.campaign }),
+        new TableItem({ data: match.statistics.length }),
         new TableItem({ data: match.teams[0]?.players, template: this.teamTemplate, title: '' }),
         new TableItem({ data: match.teams, template: this.scoreTemplate, title: '' }),
         new TableItem({ data: match.teams[1]?.players, template: this.teamTemplate, title: '' }),

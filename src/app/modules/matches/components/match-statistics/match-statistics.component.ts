@@ -50,6 +50,7 @@ export class MatchStatisticsComponent implements OnInit {
     const tableModel = new TableModel();
 
     tableModel.header = [
+      new TableHeaderItem({ data: "#" }),
       new TableHeaderItem({ data: "Início" }),
       new TableHeaderItem({ data: "Fim" }),
       new TableHeaderItem({ data: "Duração" }),
@@ -59,7 +60,8 @@ export class MatchStatisticsComponent implements OnInit {
       new TableHeaderItem({ data: "Ações" })
     ];
 
-    for (const result of statistics) {
+    for (let i = 0; i < statistics.length; i++) {
+      const result = statistics[i];
       const statistic = result.statistic;
       const gameRound = statistic?.gameRound;
       const scoring = statistic?.scoring;
@@ -71,6 +73,7 @@ export class MatchStatisticsComponent implements OnInit {
       }
 
       tableModel.addRow(new TableRow(
+        new TableItem({ data: i + 1 }),
         new TableItem({ data: result.statistic?.mapStart, template: this.dateTimeTemplate, title: '' }),
         new TableItem({ data: result.statistic?.mapEnd, template: this.dateTimeTemplate, title: '' }),
         new TableItem({ data: result.statistic?.mapElapsed }),
