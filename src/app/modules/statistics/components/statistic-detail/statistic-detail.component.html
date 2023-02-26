@@ -28,7 +28,9 @@
                 </li>
             </ul>
         </ibm-list-column>
-        <ibm-list-column>{{scoring?.teamA?.score|number}} x {{scoring?.teamB?.score|number}}</ibm-list-column>
+        <ibm-list-column>
+            <app-score [teamA]="scoring?.teamA?.score" [teamB]="scoring?.teamB?.score"></app-score>
+        </ibm-list-column>
         <ibm-list-column>
             <ul ibmList *ngIf="teamB">
                 <li *ngFor="let player of teamB" ibmListItem>

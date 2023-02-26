@@ -1,0 +1,28 @@
+:host {
+    padding: 10px 0;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    ibm-tag {
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    span {
+        margin: 0;
+        padding: 0;
+    }
+
+    .score {
+        display: flex;
+        gap: 5px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+}

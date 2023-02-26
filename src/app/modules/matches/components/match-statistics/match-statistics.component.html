@@ -45,7 +45,9 @@
                     </li>
                 </ul>
             </ibm-list-column>
-            <ibm-list-column>{{match!.teams[0].score|number}} x {{match.teams[1].score|number}}</ibm-list-column>
+            <ibm-list-column>
+                <app-score [teamA]="match!.teams[0].score" [teamB]="match.teams[1].score"></app-score>
+            </ibm-list-column>
             <ibm-list-column>
                 <ul ibmList>
                     <li *ngFor="let player of match!.teams?.[1]?.players" ibmListItem>
@@ -72,7 +74,7 @@
 </ng-template>
 
 <ng-template #scoreTemplate let-scoring="data">
-    {{scoring.teamA.score|number}} x {{scoring.teamB.score|number}}
+    <app-score [teamA]="scoring.teamA.score" [teamB]="scoring.teamB.score"></app-score>
 </ng-template>
 
 <ng-template #actionsTemplate let-route="data">

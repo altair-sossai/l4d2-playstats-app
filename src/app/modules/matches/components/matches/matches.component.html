@@ -43,9 +43,7 @@
 </ng-template>
 
 <ng-template #scoreTemplate let-teams="data">
-    <div class="nowrap">
-        {{teams[0].score|number}} x {{teams[1].score|number}}
-    </div>
+    <app-score [teamA]="teams[0].score" [teamB]="teams[1].score"></app-score>
 </ng-template>
 
 <ng-template #actionsTemplate let-match="data">

@@ -4,7 +4,7 @@ import pt from '@angular/common/locales/pt';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { BreadcrumbModule, ButtonModule, IconModule, LinkModule, ListModule, ModalModule, SkeletonModule, StructuredListModule, TableModule, TabsModule, TilesModule, UIShellModule } from 'carbon-components-angular';
+import { BreadcrumbModule, ButtonModule, IconModule, LinkModule, ListModule, ModalModule, PlaceholderModule, SkeletonModule, StructuredListModule, TableModule, TabsModule, TagModule, TilesModule, UIShellModule } from 'carbon-components-angular';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { MatchesComponent } from './modules/matches/components/matches/matches.c
 import { RankingComponent } from './modules/ranking/components/ranking/ranking.component';
 import { ServerComponent } from './modules/server/components/server/server.component';
 import { ServersComponent } from './modules/server/components/servers/servers.component';
+import { ScoreComponent } from './modules/shared/components/score/score.component';
 import { StatisticDetailComponent } from './modules/statistics/components/statistic-detail/statistic-detail.component';
 import { StatisticComponent } from './modules/statistics/components/statistic/statistic.component';
 import { StatisticsComponent } from './modules/statistics/components/statistics/statistics.component';
@@ -31,7 +32,8 @@ registerLocaleData(pt);
     MatchStatisticComponent,
     StatisticComponent,
     StatisticDetailComponent,
-    RankingComponent
+    RankingComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,8 @@ registerLocaleData(pt);
     TabsModule,
     ModalModule,
     ButtonModule,
+    TagModule,
+    PlaceholderModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000'

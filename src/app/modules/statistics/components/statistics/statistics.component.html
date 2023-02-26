@@ -44,7 +44,7 @@
 </ng-template>
 
 <ng-template #scoreTemplate let-scoring="data">
-    {{scoring?.teamA.score|number}} x {{scoring?.teamB.score|number}}
+    <app-score [teamA]="scoring?.teamA.score" [teamB]="scoring?.teamB.score"></app-score>
 </ng-template>
 
 <ng-template #actionsTemplate let-route="data">
