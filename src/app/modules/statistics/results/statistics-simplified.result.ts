@@ -8,7 +8,6 @@ export interface StatisticsSimplifiedResult {
     statisticId: string | null;
     gameRound: GameRound | null;
     scoring: Scoring | null;
-    playerNames: PlayerName[] | null;
     teamA: PlayerName[];
     teamB: PlayerName[];
     mapStart: Date;
