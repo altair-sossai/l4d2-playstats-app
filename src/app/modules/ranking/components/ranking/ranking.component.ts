@@ -18,6 +18,7 @@ export class RankingComponent implements OnInit {
   public playersTableModel?: TableModel;
 
   public explanation = false;
+  public details = false;
 
   @ViewChild('positionTemplate') public positionTemplate?: TemplateRef<any>;
   @ViewChild('playerNameTemplate') public playerNameTemplate?: TemplateRef<any>;
@@ -64,5 +65,9 @@ export class RankingComponent implements OnInit {
 
   explanationClosed(): void {
     this.explanation = false;
+  }
+
+  detailsClosed(): void {
+    this.details = false;
   }
 }
