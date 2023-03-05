@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatchStatisticComponent } from './modules/matches/components/match-statistic/match-statistic.component';
 import { MatchStatisticsComponent } from './modules/matches/components/match-statistics/match-statistics.component';
 import { MatchesComponent } from './modules/matches/components/matches/matches.component';
+import { PlayerStatisticsComponent } from './modules/player-statistics/components/player-statistics/player-statistics.component';
 import { RankingComponent } from './modules/ranking/components/ranking/ranking.component';
 import { ServerComponent } from './modules/server/components/server/server.component';
 import { ServersComponent } from './modules/server/components/servers/servers.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'server/:server/statistics', component: StatisticsComponent },
   { path: 'server/:server/statistics/:statisticId', component: StatisticComponent },
   { path: 'server/:server/ranking', component: RankingComponent },
+  { path: 'server/:server/player-statistics', component: PlayerStatisticsComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
