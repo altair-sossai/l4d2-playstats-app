@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TableHeaderItem, TableItem, TableModel, TableRow } from 'carbon-components-angular';
-import { Player } from 'src/app/modules/players/player';
+import { Player } from 'src/app/modules/ranking/player';
 import { ServerResult } from 'src/app/modules/server/results/server.result';
 import { ServerService } from 'src/app/modules/server/services/server.service';
 import { RankingService } from '../../services/ranking.service';
