@@ -9,4 +9,5 @@ export interface Player {
     draw: number;
     wins: number;
     loss: number;
+    rage: number;
 }

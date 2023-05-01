@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiUrl: "https://l4d2-playstats-api.azurewebsites.net",
+  apiUrl: "http://localhost:7094",
   version: '{BUILD_VERSION}'
 };

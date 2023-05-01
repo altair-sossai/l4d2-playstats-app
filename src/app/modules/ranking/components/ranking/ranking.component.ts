@@ -17,13 +17,9 @@ export class RankingComponent implements OnInit {
   public players?: Player[];
   public playersTableModel?: TableModel;
 
-  public explanation = false;
-  public details = false;
-
   @ViewChild('positionTemplate') public positionTemplate?: TemplateRef<any>;
   @ViewChild('playerNameTemplate') public playerNameTemplate?: TemplateRef<any>;
   @ViewChild('numberTemplate') public numberTemplate?: TemplateRef<any>;
-  @ViewChild('pointsTemplate') public pointsTemplate?: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute,
     private serverService: ServerService,
@@ -47,27 +43,21 @@ export class RankingComponent implements OnInit {
       new TableHeaderItem({ data: "Nome", sortable: false }),
       new TableHeaderItem({ data: "Pontos", className: 'text-center' }),
       new TableHeaderItem({ data: "Vitórias", className: 'text-center' }),
-      new TableHeaderItem({ data: "Derrotas", className: 'text-center' })
+      new TableHeaderItem({ data: "Derrotas", className: 'text-center' }),
+      new TableHeaderItem({ data: "Rage quit", className: 'text-center' })
     ];
 
     for (const player of players) {
       tableModel.addRow(new TableRow(
         new TableItem({ data: player.position, template: this.positionTemplate, title: player.position }),
         new TableItem({ data: player, template: this.playerNameTemplate, title: player.name }),
-        new TableItem({ data: player.points, template: this.pointsTemplate, title: player.points }),
+        new TableItem({ data: player.points, template: this.numberTemplate, title: player.points }),
         new TableItem({ data: player.wins, template: this.numberTemplate, title: player.wins }),
-        new TableItem({ data: player.loss, template: this.numberTemplate, title: player.loss })
+        new TableItem({ data: player.loss, template: this.numberTemplate, title: player.loss }),
+        new TableItem({ data: player.rage, template: this.numberTemplate, title: player.rage })
       ));
     }
 
     return tableModel;
-  }
-
-  explanationClosed(): void {
-    this.explanation = false;
-  }
-
-  detailsClosed(): void {
-    this.details = false;
   }
 }
