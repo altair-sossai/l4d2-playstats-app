@@ -11,3 +11,33 @@
 .text-right {
     text-align: right !important;
 }
+
+.stats-table {
+    width: 100%;
+
+    th {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    th,
+    td {
+        padding: 4px 8px;
+    }
+
+    thead {
+        th {
+            text-align: center;
+        }
+    }
+
+    tbody {
+        th {
+            text-align: left;
+        }
+    }
+}

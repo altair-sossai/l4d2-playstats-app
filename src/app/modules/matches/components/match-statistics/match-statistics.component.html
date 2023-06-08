@@ -58,6 +58,90 @@
         </ibm-list-row>
     </ibm-structured-list>
 
+    <ibm-structured-list>
+        <ibm-list-header>
+            <ibm-list-column *ngFor="let team of match.teams; let i = index">
+                Equipe {{ !i ? 'A' : 'B'}}
+            </ibm-list-column>
+        </ibm-list-header>
+        <ibm-list-row>
+            <ibm-list-column *ngFor="let team of match.teams">
+                <table class="stats-table" ibmTable size="sm">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let player of team.players">
+                                {{player.name}}
+                            </th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Commons:</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.common|number}}
+                            </td>
+                            <th class="text-center">{{team.common|number}}</th>
+                        </tr>
+                        <tr>
+                            <th>Commons (%):</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.commonPercentage|percent:'.2'}}
+                            </td>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <th>Infec. Especiais:</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.siKilled|number}}
+                            </td>
+                            <th class="text-center">{{team.siKilled|number}}</th>
+                        </tr>
+                        <tr>
+                            <th>Infec. Especiais (%):</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.siKilledPercentage|percent:'.2'}}
+                            </td>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <th>Dano como Infec.:</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.siDamage|number}}
+                            </td>
+                            <th class="text-center">{{team.siDamage|number}}</th>
+                        </tr>
+                        <tr>
+                            <th>Dano como Infec. (%):</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.siDamagePercentage|percent:'.2'}}
+                            </td>
+                            <th></th>
+                        </tr>
+
+                        <tr>
+                            <th>Dano ao Tank:</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.dmgTank|number}}
+                            </td>
+                            <th class="text-center">{{team.dmgTank|number}}</th>
+                        </tr>
+                        <tr>
+                            <th>Dano ao Tank (%):</th>
+                            <td *ngFor="let player of team.players">
+                                {{player.dmgTankPercentage|percent:'.2'}}
+                            </td>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </ibm-list-column>
+        </ibm-list-row>
+    </ibm-structured-list>
+
     <ibm-table-container>
         <ibm-table-header>
             <h4 ibmTableHeaderTitle>Mapas</h4>
