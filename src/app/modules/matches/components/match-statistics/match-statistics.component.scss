@@ -5,3 +5,16 @@
         display: block;
     }
 }
+
+.stats-table {
+    tbody {
+        tr {
+            td:nth-child(even) {
+                text-align: right;
+            }
+            td:nth-child(odd) {
+                text-align: left;
+            }
+        }
+    }
+}
