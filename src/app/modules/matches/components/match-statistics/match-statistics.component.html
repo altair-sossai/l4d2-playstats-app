@@ -87,6 +87,45 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <th>MVP (SI):</th>
+                            <ng-container *ngFor="let player of team.players">
+                                <td>
+                                    {{player.mvpSiDamage|number}}
+                                </td>
+                                <td>
+                                    {{player.mvpSiDamagePercentage|percent:'.2'}}
+                                </td>
+                            </ng-container>
+                            <th class="text-center">{{team.mvpSiDamage|number}}</th>
+                        </tr>
+
+                        <tr>
+                            <th>MVP (Common):</th>
+                            <ng-container *ngFor="let player of team.players">
+                                <td>
+                                    {{player.mvpCommon|number}}
+                                </td>
+                                <td>
+                                    {{player.mvpCommonPercentage|percent:'.2'}}
+                                </td>
+                            </ng-container>
+                            <th class="text-center">{{team.mvpCommon|number}}</th>
+                        </tr>
+
+                        <tr>
+                            <th>LVP (FF):</th>
+                            <ng-container *ngFor="let player of team.players">
+                                <td>
+                                    {{player.lvpFfGiven|number}}
+                                </td>
+                                <td>
+                                    {{player.lvpFfGivenPercentage|percent:'.2'}}
+                                </td>
+                            </ng-container>
+                            <th class="text-center">{{team.lvpFfGiven|number}}</th>
+                        </tr>
+
+                        <tr>
                             <th>Mortes:</th>
                             <ng-container *ngFor="let player of team.players">
                                 <td>

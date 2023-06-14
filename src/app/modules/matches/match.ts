@@ -8,6 +8,7 @@ export interface Match {
 }
 
 export interface Team {
+    /* Survivor */
     score: number;
     players: Player[];
     died: number;
@@ -23,10 +24,17 @@ export interface Team {
     levels: number;
     crowns: number;
     ffGiven: number;
+
+    /* Infected */
     dmgTotal: number;
     dmgTank: number;
     dmgSpit: number;
     hunterDpDmg: number;
+
+    /* MVP and LVP */
+    mvpSiDamage: number;
+    mvpCommon: number;
+    lvpFfGiven: number;
 }
 
 export interface Player {
@@ -36,6 +44,8 @@ export interface Player {
     profileUrl: string | null;
     index: number;
     name: string | null;
+
+    /* Survivor */
     died: number;
     diedPercentage: number;
     incaps: number;
@@ -62,6 +72,8 @@ export interface Player {
     crownsPercentage: number;
     ffGiven: number;
     ffGivenPercentage: number;
+
+    /* Infected */
     dmgTotal: number;
     dmgTotalPercentage: number;
     dmgTank: number;
@@ -70,4 +82,12 @@ export interface Player {
     dmgSpitPercentage: number;
     hunterDpDmg: number;
     hunterDpDmgPercentage: number;
+
+    /* MVP and LVP */
+    mvpSiDamage: number;
+    mvpSiDamagePercentage: number;
+    mvpCommon: number;
+    mvpCommonPercentage: number;
+    lvpFfGiven: number;
+    lvpFfGivenPercentage: number;
 }
