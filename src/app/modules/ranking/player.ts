@@ -5,9 +5,7 @@ export interface Player {
     profileUrl: string | null;
     position: number;
     name: string | null;
-    points: number;
-    draw: number;
     wins: number;
+    mvps: number;
     loss: number;
-    rage: number;
 }

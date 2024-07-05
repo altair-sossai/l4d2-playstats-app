@@ -41,20 +41,18 @@ export class RankingComponent implements OnInit {
     tableModel.header = [
       new TableHeaderItem({ data: "Posição", className: 'text-center' }),
       new TableHeaderItem({ data: "Nome", sortable: false }),
-      new TableHeaderItem({ data: "Pontos", className: 'text-center' }),
       new TableHeaderItem({ data: "Vitórias", className: 'text-center' }),
-      new TableHeaderItem({ data: "Derrotas", className: 'text-center' }),
-      new TableHeaderItem({ data: "Rage quit", className: 'text-center' })
+      new TableHeaderItem({ data: "MVPs", className: 'text-center' }),
+      new TableHeaderItem({ data: "Derrotas", className: 'text-center' })
     ];
 
     for (const player of players) {
       tableModel.addRow(new TableRow(
         new TableItem({ data: player.position, template: this.positionTemplate, title: player.position }),
         new TableItem({ data: player, template: this.playerNameTemplate, title: player.name }),
-        new TableItem({ data: player.points, template: this.numberTemplate, title: player.points }),
         new TableItem({ data: player.wins, template: this.numberTemplate, title: player.wins }),
-        new TableItem({ data: player.loss, template: this.numberTemplate, title: player.loss }),
-        new TableItem({ data: player.rage, template: this.numberTemplate, title: player.rage })
+        new TableItem({ data: player.mvps, template: this.numberTemplate, title: player.mvps }),
+        new TableItem({ data: player.loss, template: this.numberTemplate, title: player.loss })
       ));
     }
 
